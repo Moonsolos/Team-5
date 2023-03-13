@@ -1,0 +1,11 @@
+body {
+    background-color: #EDF6F9;
+    margin: 0;
+    padding: 0;
+
+}
+
+.cloud-background {
+    width: 100%;
+    height: 15%;
+}

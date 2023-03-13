@@ -1,0 +1,20 @@
+body {
+    background-color: #EDF6F9;
+    background-image: url("../img/individueleWolk.png");
+    background-size: 100% 50%;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+header {
+    display: flex;
+}
+
+main {
+    display: flex;
+}
+
+.winkel-image {
+
+}
