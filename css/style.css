@@ -37,8 +37,8 @@ main {
 
 .winkel-image {
     display: flex;
-    justify-content: space-between;
-    width: 18%;
+    margin: auto;
+    width: 70%;
 }
 
 footer {

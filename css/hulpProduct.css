@@ -1,0 +1,38 @@
+body {
+    background-color: #EDF6F9;
+    background-image: url("../img/individueleWolk.png");
+    background-size: 100% 900px;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0;
+}
+
+.title {
+    font-family: 'Bebas Neue', cursive;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+
+.text {
+    font-family: 'Bebas Neue', cursive;
+    background-color: #FFCA9B;
+    position: absolute;
+    top: 23vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+}
+
+.image-select-box {
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+
