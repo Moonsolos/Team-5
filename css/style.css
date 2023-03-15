@@ -6,6 +6,9 @@ body {
     background-repeat: no-repeat;
     position: relative;
     margin: 0;
+}
+
+.title {
     font-family: 'Bebas Neue', cursive;
 }
 
