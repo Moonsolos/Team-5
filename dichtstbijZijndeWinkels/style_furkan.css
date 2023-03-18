@@ -10,28 +10,26 @@ body {
 
 header{
     position: absolute;
-    width:1400px;
-    height: 108px;
+    width:82vw;
+    height: 13vh;
     left: 149px;
     top: 161px;
 
 
     background: #808080;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .header-text{
-    position: absolute;
-    width: 673px;
-    height: 82px;
-    left: 15px;
 
+    font-family: 'Bebas Neue', cursive;
 
 
     font-style: normal;
     font-weight: 400;
     font-size: 35px;
-    line-height: 44px;
+    line-height: 5vh;
     text-align: center;
 
     color: #FFFFFF;
@@ -39,8 +37,8 @@ header{
 
 .field{
     position: absolute;
-    width: 1400px;
-    height: 600px;
+    width: 82vw;
+    height: 90vh;
     left: 149px;
     top: 301px;
 
@@ -63,5 +61,13 @@ header{
 
     color: #000000;
 }
+
+
+
+
+
+
+
+
 
 
