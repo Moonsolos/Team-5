@@ -2,24 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Winkelende senioren</title>
-    <link rel="stylesheet" href="style_furkan.css">
+    <title>Online winkelen</title>
+    <link rel="stylesheet" type="text/css" href="style_furkan.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
     <script type="text/javascript" src="furkanmain.js" defer></script>
 </head>
 <body>
 <header>
-    <p class="header-text">WELKE WINKEL IS HET DICHTSTBIJ ?</p>
+    <a class="back-arrow-link" href="../index.html">
+        <img class="back-arrow" src="../img/terug.png" alt="pijl terug">
+    </a>
+
 </header>
 
-<div class="field">
-    <p class="field-text">
-        Weet u niet welke winkel het dichtst bij is?
-        Met het invullen van heel weinig gegevens kunnen we u de dichtst bij zijnde winkel voor u vinden !
-    </p>
-    <form name="cityForm" id="cityForm" >
-        Kies hier uw stad: <label for="city"></label><select name="city" id="city">
-        <option value="" selected="selected">Uw stad</option>
-    </select>
-    </form>
-</div>
+<main>
+    <h1 class="page-title">DICHTSTBIJ ZIJNDE WINKELS</h1>
+    <div class="background-1">
+        <div class="field">
+            <p>Weet u niet welke winkel het dichtst bij is?
+                Met het invullen van heel weinig gegevens kunnen we u de dichtst bij zijnde
+                winkel voor u vinden !
+            </p>
+            <div class="flex-container">
+
+                <div class="flex-child city">
+                    <p>Rotterdam</p>
+                    <p>Amsterdam</p>
+                    <p>Gouda</p>
+                    <p>Den Haag</p>
+                    <p>Schoonhoven</p>
+
+                </div>
+
+                <div class="flex-child shop">
+                    <p>Albert Heijn</p>
+                    <p>Dirk</p>
+                    <p>Jumbo</p>
+                    <p>Aldi</p>
+                    <p>Lidl</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</main>
+
 </body>
+</html>
