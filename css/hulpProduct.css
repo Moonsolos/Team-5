@@ -18,21 +18,22 @@ header {
     justify-content: center;
 }
 
+p {
+    margin: 1vw;
+}
 
 .text {
     font-family: 'Bebas Neue', cursive;
     background-color: #FFCA9B;
-    position: absolute;
-    top: 23vw;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 3vw;
+    position: relative;
+    justify-content: center;
+    padding-left: 50%;
 }
 
 .image-select-box {
     display: flex;
-    margin: auto;
-    width: 50%;
+    flex-direction: column;
 }
 
 
