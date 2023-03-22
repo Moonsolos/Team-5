@@ -7,15 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="js/main.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <div id="container">
     <header>
-        <img class= "questionMark" src="img/questionMarkIcon.png" alt="help icon">
+        <button class="open-popup">
+            <i class='fa fa-question-circle-o'style="font-size:48px;"></i>
+        </button>
         <h1 class="title">Klik op een winkel om te beginnen</h1>
         <h1></h1>
     </header>
+
+    <dialog class="modal" id="modal">
+        <p class="text-info">Deze website is bedoeld om senioren te
+            helpen met winkelen.
+            Elke van de vier winkels heeft een andere functie die senioren kunnen helpen.
+            Als u op een van de winkels klikt gaat u naar de desbetreffende pagina.</p>
+        <button class="close-popup center"><i class='fa fa-long-arrow-left' style="font-size:48px;"></i>Terug</button>
+    </dialog>
 
     <main>
         <div class="winkels">
