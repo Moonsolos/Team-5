@@ -7,9 +7,29 @@ body {
     padding: 0;
 }
 
-
 h1{
     margin:0;
     padding:0;
+
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 8%;
+}
+
+.background-page-title {
+    width: 85%;
+}
+
+.page-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+    font-weight: lighter;
+    background-color: #D8836F;
+    padding: 20px;
+    color: white;
 }
 
