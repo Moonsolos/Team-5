@@ -17,19 +17,17 @@ function cityDropdownList(){
     let cityDropdown = document.getElementById('city-dropdown');
 
     fetch(actionJson)
-        .then(response => response.json())
-        .then(data => {
-            data.steden.forEach(stad => {
-                const option = document.createElement("option");
-                option.value = stad;
-                option.text = stad;
-                cityDropdown.add(option);
-            });
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            return response.json();
         })
-        .catch(error => console.error(error));
+        .then(fillCityDropdown)
+        .catch();
 
 }
 
-function fillCityDropdown(){
+function fillCityDropdown(state){
 
 }
