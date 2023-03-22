@@ -2,38 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Winkelende senioren</title>
-    <link rel="stylesheet" href="../css/hulpProduct.css">
+    <title>Online winkelen</title>
+    <link rel="stylesheet" type="text/css" href="../css/hulpProduct.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
+<header>
+    <a class="back-arrow-link" href="../index.html">
+        <img class="back-arrow" src="../img/terug.png" alt="pijl terug">
+    </a>
 
-<div id="container">
-    <header>
-        <h1 class="title">Hulp bij product vinden</h1>
-        <h1></h1>
-    </header>
+</header>
 
-    <main>
+<main>
+    <h1 class="page-title">Hulp bij product vinden</h1>
+    <div class="background-1">
+        <div class="field">
+            <p>Kunt u een product niet vinden in de supermarkt?
+                Deze pagina kunt u daarbij helpen.
+                Voer de volgende gegevens in en u vindt een plattegrond van de winkel in uw buurt.
+            </p>
 
-        <div class="select-box">
-            <div class="text">
-                <p>Gouda</p>
+            <div class="flex-container">
+                <div class="flex-child city">
+                    <select id="city-dropdown">
+                        <option value="stad">Kies een stad</option>
+                    </select>
+                </div>
+
+                <div class="flex-child shop">
+                    <select id="shop-dropdown">
+                        <option value="">Kies een winkel</option>
+                    </select>
+
+                </div>
+
             </div>
-            <div class="text">
-                <p>Rotterdam</p>
-            </div>
-            <div class="text">
-                <p>Den Haag</p>
-            </div>
-            <div class="text">
-                <p>Amsterdam</p>
-            </div>
+
         </div>
+    </div>
+</main>
 
-    </main>
-</div>
 </body>
 </html>
