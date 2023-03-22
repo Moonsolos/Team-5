@@ -53,11 +53,7 @@ header {
 .title-fav {
     display: flex;
     justify-content: space-between;
-}
-
-.title-fav img {
-    height: 70%;
-    width: 10%;
+    align-items: center;
 }
 
 main {
