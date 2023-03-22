@@ -42,7 +42,22 @@ header {
 
 .fav-button {
     margin-right: 3%;
-    padding: 10px 20px;
+    padding: 7px 15px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    background-color: #9AC1D9;
+    border: none;
+    border-radius: 5px;
+}
+
+.title-fav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-fav img {
+    height: 70%;
+    width: 10%;
 }
 
 main {
