@@ -21,7 +21,8 @@ header {
 .back-arrow-link {
     width: 10%;
     height: 100%;
-    margin-left: 3%;
+    margin-left: 2vw;
+    margin-top: 2vw;
 }
 
 .back-arrow {
@@ -63,4 +64,8 @@ main {
 
 .flex-child:first-child {
     margin-right: 20px;
+}
+
+.dropdown {
+    width: 70%;
 }
