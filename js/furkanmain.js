@@ -2,7 +2,7 @@ window.addEventListener('load', init);
 
 // global variables
 
-let actionJson = 'webservice-start/includes/action.php';
+let actionJson = 'webservice-start-furkan/includes/action.php';
 
 
 //initialize after the dom is ready
