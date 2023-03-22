@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Online winkelen</title>
-    <link rel="stylesheet" type="text/css" href="style_furkan.css">
+    <link rel="stylesheet" type="text/css" href="dichtstbijZinde-winkel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
@@ -25,23 +25,19 @@
                 Met het invullen van heel weinig gegevens kunnen we u de dichtst bij zijnde
                 winkel voor u vinden !
             </p>
+
             <div class="flex-container">
-
                 <div class="flex-child city">
-                    <p>Rotterdam</p>
-                    <p>Amsterdam</p>
-                    <p>Gouda</p>
-                    <p>Den Haag</p>
-                    <p>Schoonhoven</p>
-
+                    <select id="city-dropdown">
+                        <option value="stad">Kies een stad</option>
+                    </select>
                 </div>
 
                 <div class="flex-child shop">
-                    <p>Albert Heijn</p>
-                    <p>Dirk</p>
-                    <p>Jumbo</p>
-                    <p>Aldi</p>
-                    <p>Lidl</p>
+                    <select id="shop-dropdown">
+                        <option value="">Kies een Winkel</option>
+                    </select>
+
                 </div>
 
             </div>

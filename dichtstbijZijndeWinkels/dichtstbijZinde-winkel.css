@@ -29,7 +29,6 @@ header {
     height: 100%;
 }
 
-
 main {
     display: flex;
     flex-direction: column;
@@ -59,7 +58,6 @@ main {
 
 .flex-child {
     flex: 1;
-    border: 2px solid grey;
     text-align: center;
 }
 
