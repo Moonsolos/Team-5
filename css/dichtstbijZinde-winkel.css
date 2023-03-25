@@ -67,5 +67,14 @@ main {
 }
 
 .dropdown {
-    width: 70%;
+    width: 60%;
+    background-color: #ADA8AD;
+    padding: 12px;
+    color: white;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-align: center;
 }
+
