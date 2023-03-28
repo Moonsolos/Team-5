@@ -50,12 +50,6 @@ header {
     border-radius: 5px;
 }
 
-.title-fav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -73,18 +67,27 @@ main {
 
 .online-winkel {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DDE4E6;
+    height: 10vw;
+    margin-bottom: 2%;
+}
+
+.online-winkel i {
+    margin: 0 2%;
 }
 
 .online-winkel-img {
-    width: 27%;
-    padding: 2%;
-
+    width: 10%;
+    padding: 1%;
 }
 
-.online-background-1 {
-    background-color: #DDE4E6;
+.title-img {
+    display: flex;
+    align-items: center;
 }
 
-.bolcom {
-    margin: 2% 2%;
+.icon-size {
+    font-size: 50px;
 }

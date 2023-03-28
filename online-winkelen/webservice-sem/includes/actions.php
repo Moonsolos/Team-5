@@ -8,27 +8,52 @@ function getOnlineShops()
         [
             "id" => 1,
             "name" => "Bol.com",
-            "kitchen" => "Italian",
+            "img" => "../img/bolcom.png",
         ],
         [
             "id" => 2,
-            "name" => "Kale",
-            "kitchen" => "Dutch",
+            "name" => "Albert Heijn",
+            "img" => "img-online-winkelen/Albert_Heijn_Logo.svg.png",
         ],
         [
             "id" => 3,
-            "name" => "Lasagna",
-            "kitchen" => "Italian",
+            "name" => "Hema",
+            "img" => "img-online-winkelen/hema-logo.png",
         ],
         [
             "id" => 4,
-            "name" => "Kebab",
-            "kitchen" => "Turkish",
+            "name" => "About You",
+            "img" => "img-online-winkelen/about-you-logo.png",
         ],
         [
             "id" => 5,
-            "name" => "Paella",
-            "kitchen" => "Spanish",
+            "name" => "A.Vogel",
+            "img" => "img-online-winkelen/avogel-logo.png",
+        ],
+        [
+            "id" => 6,
+            "name" => "Action",
+            "img" => "img-online-winkelen/action-logo.png",
+        ],
+        [
+            "id" => 7,
+            "name" => "Amazon",
+            "img" => "img-online-winkelen/amazon-logo.png",
+        ],
+        [
+            "id" => 8,
+            "name" => "Zalando",
+            "img" => "img-online-winkelen/zalando-logo.png",
+        ],
+        [
+            "id" => 9,
+            "name" => "Zeeman",
+            "img" => "img-online-winkelen/zeeman-logo.jpg",
+        ],
+        [
+            "id" => 10,
+            "name" => "Gall & Gall",
+            "img" => "img-online-winkelen/gall&gall-logo.jpg",
         ]
     ];
 }
@@ -41,25 +66,35 @@ function getOnlineShopsDetails($id)
 {
     $tags = [
         1 => [
-            "recipe" => "Put it in the oven and go!",
-            "tags" => ['cheese', 'oven']
+            "cijfer" => 8,
         ],
         2 => [
-            "recipe" => "You can make this delicious Dutch meal by ...",
-            "tags" => ['unox', 'healthy', 'stamppot', 'boerenkool']
+            "cijfer" => 7,
         ],
         3 => [
-            "recipe" => "Very nice when your grandma prepares this meal",
-            "tags" => ['omnomnom']
+            "cijfer" => 7,
         ],
         4 => [
-            "recipe" => "Everytime in the city after midnight",
-            "tags" => ['kapsalon', 'tasty', 'meat']
+            "cijfer" => 8,
         ],
         5 => [
-            "recipe" => "Specialty when on holiday in Spain",
-            "tags" => ['fish']
+            "cijfer" => 8,
         ],
+        6 => [
+            "cijfer" => 4,
+        ],
+        7 => [
+            "cijfer" => 4,
+        ],
+        8 => [
+            "cijfer" => 6,
+        ],
+        9 => [
+            "cijfer" => 5,
+        ],
+        10 => [
+            "cijfer" => 3,
+        ]
     ];
 
     return $tags[$id];
