@@ -5,31 +5,70 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 h1{
     margin:0;
     padding:0;
-
 }
 
 main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 8%;
+
+}
+
+.main-section{
+    background-color: white;
+    width: 78%;
+    padding: 31px;
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    font-size: 3vh;
+}
+
+.buttons {
+    margin-top: 75px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+p {
+    margin-top:0;
+}
+
+.button {
+    background-color: #D8836F ;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    width: 400px;
+    font-size: 2em;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.button:hover{
+    background-color: #be664f;
 }
 
 .background-page-title {
-    width: 85%;
+    width: 82%;
+    margin-top: 125px;
 }
 
 .page-title {
     font-family: 'Bebas Neue', cursive;
-    font-size: 3em;
+    font-size: 4em;
     font-weight: lighter;
     background-color: #D8836F;
-    padding: 20px;
+    padding: 15px;
     color: white;
 }
 
