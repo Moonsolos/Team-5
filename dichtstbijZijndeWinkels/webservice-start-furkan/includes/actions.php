@@ -5,12 +5,26 @@
 function getCitys()
 {
     return [
-        "state" =>  [
-            "Amsterdam",
-            "Rotterdam",
-            "Den Haag",
-            "Utrecht",
-            "Groningen"
+        [
+            "id" => 1,
+            "state" => "Rotterdam",
+
+        ],
+        [
+            "id" => 2,
+            "state" => "Amsterdam",
+        ],
+        [
+            "id" => 3,
+            "state" => "Gouda",
+        ],
+        [
+            "id" => 4,
+            "state" => "Den haag",
+        ],
+        [
+            "id" => 5,
+            "state" => "Schoonhoven",
         ]
     ];
 }
@@ -22,13 +36,21 @@ function getCitys()
 function getCityShops($id)
 {
     $tags = [
-        "winkels" => [
-            "Albert Heijn",
-            "Jumbo",
-            "Action",
-            "Dirk van den Broek",
-            "Lidl"
-        ]
+        1 => [
+            "winkel" => "Albert Heijn"
+        ],
+        2 => [
+            "winkel" => "Dirk"
+        ],
+        3 => [
+            "winkel" => "Jumbo"
+        ],
+        4 => [
+            "winkel" => "Aldi"
+        ],
+        5 => [
+            "winkel" => "Lidl"
+        ],
     ];
 
     return $tags[$id];

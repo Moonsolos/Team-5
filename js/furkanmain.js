@@ -1,22 +1,18 @@
 window.addEventListener('load', init);
 
-// global variables
-
-let actionJson = 'webservice-start-furkan/includes/action.php';
-
-
-//initialize after the dom is ready
-
-function init() {
+//Globals
+let apiUrl = '../dichtstbijZijndeWinkels/webservice-start-furkan/index.php';
+/**
+ * Initialize after the DOM is ready
+ */
+function init()
+{
     cityDropdownList();
 }
 
-
 function cityDropdownList(){
 
-    let cityDropdown = document.getElementById('city-dropdown');
-
-    fetch(actionJson)
+    fetch(apiUrl)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(response.statusText);
@@ -24,10 +20,22 @@ function cityDropdownList(){
             return response.json();
         })
         .then(fillCityDropdown)
-        .catch();
+        .catch(ajaxErrorHandler);
 
 }
 
-function fillCityDropdown(state){
-
+function ajaxErrorHandler(data){
+    console.error(data);
 }
+
+
+function fillCityDropdown(cities){
+    for (let city of cities) {
+        console.log(city);
+
+
+        let cityDropdown = document.getElementById('city-dropdown');
+        let fillName = document.createElement('option');
+        fillName.innerHTML = `${city.state}`;
+        cityDropdown.appendChild(fillName);
+    }}
