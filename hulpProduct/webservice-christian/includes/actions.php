@@ -44,9 +44,6 @@ function getCitys()
             4 => [
                 "winkels" => ['kapsalon', 'tasty', 'meat']
             ],
-            5 => [
-                "winkels" => ['fish']
-            ],
         ];
 
         return $tags[$id];
