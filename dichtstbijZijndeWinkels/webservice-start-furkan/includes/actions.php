@@ -37,19 +37,19 @@ function getCityShops($id)
 {
     $tags = [
         1 => [
-            "winkel" => "Albert Heijn"
+            "winkel" => 'Albert Heijn','Dirk','Plus','Jumbo','Aldi','Lidl'
         ],
         2 => [
-            "winkel" => "Dirk"
+            "winkel" => 'Dirk','Plus','Jumbo','Aldi','Lidl','Albert Heijn'
         ],
         3 => [
-            "winkel" => "Jumbo"
+            "winkel" => 'Jumbo','Aldi','Lidl','Albert Heijn','Dirk','Plus'
         ],
         4 => [
-            "winkel" => "Aldi"
+            "winkel" => 'Aldi','Lidl','Albert Heijn','Dirk','Plus','Jumbo'
         ],
         5 => [
-            "winkel" => "Lidl"
+            "winkel" => 'Lidl','Alber Heijn','Plus','Spar','Gall&Gall','De Eekhoorn'
         ],
     ];
 
