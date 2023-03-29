@@ -4,7 +4,8 @@ window.addEventListener('load', init);
 let apiUrl = '../dichtstbijZijndeWinkels/webservice-start-furkan/index.php';
 let fillName;
 let dropdown;
-let detailContent
+let detailContent;
+let button;
 
 /**
  * Initialize after the DOM is ready
@@ -15,19 +16,20 @@ function init()
     detailContent = document.getElementById('shop-dropdown');
     cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
-    dropdown.addEventListener('change', fillCityShops);
+    dropdown.addEventListener('click', fillCityShops);
+
 }
 
-function cityDropdownList(){
+function cityDropdownList(url,succesCall){
 
-    fetch(apiUrl)
+    fetch(url)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
             return response.json();
         })
-        .then(fillCityDropdown)
+        .then(succesCall)
         .catch(ajaxErrorHandler);
 
 }
@@ -51,7 +53,7 @@ function fillCityDropdown(cities){
 
 function fillCityShops(e){
     let target = e.target;
-    detailContent.innerHTML = '<option>Kies een winkel</option>';
+    detailContent.innerHTML = '';
     let id;
     switch (dropdown.value) {
         case 'Rotterdam':
@@ -68,6 +70,7 @@ function fillCityShops(e){
             break;
         case 'Schoonhoven':
             id = 5;
+            break;
     }
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
 }
