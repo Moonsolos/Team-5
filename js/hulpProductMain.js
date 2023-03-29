@@ -1,18 +1,17 @@
 window.addEventListener('load', init);
 
 //Globals
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=1008';
-let gallery;
+let apiUrl = '../hulpProduct/webservice-christian/index.php';
 /**
  * Initialize after the DOM is ready
  */
 function init()
 {
-    getPokemons();
-    gallery = document.getElementById('city-dropdown');
+    cityDropdownList();
 }
 
-function getPokemons(){
+function cityDropdownList(){
+
     fetch(apiUrl)
         .then((response) => {
             if (!response.ok) {
@@ -20,7 +19,7 @@ function getPokemons(){
             }
             return response.json();
         })
-        .then(createPokemonCards)
+        .then(fillCityDropdown)
         .catch(ajaxErrorHandler);
 
 }
@@ -29,32 +28,14 @@ function ajaxErrorHandler(data){
     console.error(data);
 }
 
-function createPokemonCards(data) {
-    console.log(data);
 
-    for (let pokemon of data.results){
-        let pokemonCard = document.createElement('option');
-        pokemonCard.classList.add('pokemon-card');
-        pokemonCard.dataset.name = pokemon.name;
-        gallery.appendChild(pokemonCard);
+function fillCityDropdown(cities){
+    for (let city of cities) {
+        console.log(city);
 
-        fetch(pokemon.url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            })
-            .then(fillPokemonCard)
-            .catch(ajaxErrorHandler);
-    }
-}
 
-function fillPokemonCard(pokemon){
-
-    let pokemonCard = document.querySelector(`.pokemon-card[data-name='${pokemon.name}']`);
-
-    let title = document.createElement('option')
-    title.innerHTML = `<option value="stad"> ${pokemon.name} (#${pokemon.id}) </option>`;
-    pokemonCard.appendChild(title);
-}
+        let cityDropdown = document.getElementById('city-dropdown');
+        let fillName = document.createElement('option');
+        fillName.innerHTML = `${city.name}`;
+        cityDropdown.appendChild(fillName);
+    }}
