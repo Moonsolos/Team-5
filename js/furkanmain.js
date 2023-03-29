@@ -13,6 +13,11 @@ let button;
 
 function init()
 {
+    if (typeof window.localStorage === "undefined") {
+        console.error('Local storage is not available in your browser');
+        return;
+    }
+
     detailContent = document.getElementById('shop-dropdown');
     cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
@@ -72,7 +77,12 @@ function fillCityShops(e){
             id = 5;
             break;
     }
+    // store the city and store in localStorage
+    localStorage.setItem('city', dropdown.value);
+    localStorage.setItem('store', target.value);
+
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
+
 }
 function fillCity(stores){
     console.log(stores)
