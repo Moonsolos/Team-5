@@ -66,34 +66,54 @@ function getOnlineShopsDetails($id)
 {
     $tags = [
         1 => [
+            "id" => 1,
             "cijfer" => 8,
+            "text" => "Bol.com is de grootste online winkel van Nederland en België. Bij bol.com kun je terecht voor alles wat je nodig hebt, van boeken en muziek tot elektronica en kleding. Of je nu op zoek bent naar de nieuwste bestseller, een mooi cadeau voor een vriend of familielid, of gewoon iets leuks voor jezelf, bij bol.com vind je het allemaal.",
         ],
         2 => [
+            "id" => 2,
             "cijfer" => 7,
+            "text" => "",
         ],
         3 => [
+            "id" => 3,
             "cijfer" => 7,
+            "text" => "",
         ],
         4 => [
+            "id" => 4,
             "cijfer" => 8,
+            "text" => "",
         ],
         5 => [
+            "id" => 5,
             "cijfer" => 8,
+            "text" => "",
         ],
         6 => [
+            "id" => 6,
             "cijfer" => 4,
+            "text" => "",
         ],
         7 => [
+            "id" => 7,
             "cijfer" => 4,
+            "text" => "",
         ],
         8 => [
+            "id" => 8,
             "cijfer" => 6,
+            "text" => "",
         ],
         9 => [
+            "id" => 9,
             "cijfer" => 5,
+            "text" => "",
         ],
         10 => [
+            "id" => 10,
             "cijfer" => 3,
+            "text" => "",
         ]
     ];
 
