@@ -6,6 +6,7 @@ let fillName;
 let dropdown;
 let detailContent;
 let button;
+let storeDropdown;
 
 /**
  * Initialize after the DOM is ready
@@ -21,7 +22,8 @@ function init()
     detailContent = document.getElementById('shop-dropdown');
     cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
-    dropdown.addEventListener('click', fillCityShops);
+    dropdown.addEventListener('change', fillCityShops);
+
 
 }
 
@@ -50,6 +52,7 @@ function fillCityDropdown(cities){
 
 
         let cityDropdown = document.getElementById('city-dropdown');
+        storeDropdown = document.getElementById('shop-dropdown');
         let fillName = document.createElement('option');
         fillName.innerHTML = `${city.state}`;
         fillName.dataset.id = city.id;
@@ -77,20 +80,28 @@ function fillCityShops(e){
             id = 5;
             break;
     }
-    // store the city and store in localStorage
+    // store the city in localStorage
     localStorage.setItem('city', dropdown.value);
-    localStorage.setItem('store', target.value);
+
 
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
 
 }
 function fillCity(stores){
     console.log(stores)
+
     for (let store of stores.winkel){
 
 
         let storeDropdown = document.getElementById('shop-dropdown');
         fillName = document.createElement('option');
         fillName.innerHTML =`${store}`;
+        fillName.dataset.value = store;
         storeDropdown.appendChild(fillName);
-    }}
+    }
+
+    storeDropdown.addEventListener('change',function (e){
+        let selectedStore = e.target.value;
+        localStorage.setItem('store',selectedStore);
+    })
+}
