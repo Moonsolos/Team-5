@@ -54,6 +54,21 @@ p {
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
+.submit {
+    background-color: #D8836F ;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+    box-shadow: 5px 5px 5px #aaaaaa;
+    border: none;
+    border-radius: 15px;
+    font-size: 1em;
+    padding: 7px 30px;
+}
+
+.submit:hover{
+    background-color: #be664f;
+}
+
 .button:hover{
     background-color: #be664f;
 }
@@ -72,3 +87,7 @@ p {
     color: white;
 }
 
+.error {
+    color: red;
+    font-size: medium;
+}
