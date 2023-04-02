@@ -2,11 +2,14 @@ window.addEventListener('load', init);
 
 //Globals
 let apiUrl = '../dichtstbijZijndeWinkels/webservice-start-furkan/index.php';
+let locationApi = 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU';
 let fillName;
 let dropdown;
 let detailContent;
-let button;
 let storeDropdown;
+
+
+
 
 /**
  * Initialize after the DOM is ready
@@ -18,12 +21,16 @@ function init()
         console.error('Local storage is not available in your browser');
         return;
     }
+    userLocation(locationApi,handlePosition);
 
-    detailContent = document.getElementById('shop-dropdown');
-    cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
-    dropdown.addEventListener('change', fillCityShops);
+    detailContent = document.getElementById('shop-dropdown');
 
+
+    cityDropdownList(apiUrl, fillCityDropdown);
+
+
+    dropdown.addEventListener('click', fillCityShops);
 
 }
 
@@ -105,3 +112,26 @@ function fillCity(stores){
         localStorage.setItem('store',selectedStore);
     })
 }
+
+// get the location of the user
+function userLocation() {
+    navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
+function handlePosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    fetch(`https://places.ls.hereapi.com/places/v1/discover/explore?at=${latitude},${longitude}&cat=sights-museums&apiKey=bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU`)
+        .then(response => response.json())
+        .then(data => {
+            // use the data obtained to place the shops on the map
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    console.log(position);
+}
+
+
+
