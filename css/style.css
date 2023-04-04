@@ -42,11 +42,13 @@ header {
     text-align: center;
     flex-direction: column;
     opacity: 0;
+    visibility: hidden;
 }
 
 .modal[open] {
     opacity: 1;
     transition: all 1s ease;
+    visibility: visible;
 }
 
 

@@ -48,6 +48,7 @@ header {
     background-color: #9AC1D9;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 main {
@@ -72,6 +73,7 @@ main {
     background-color: #DDE4E6;
     height: 10vw;
     margin-bottom: 2%;
+    cursor: pointer;
 }
 
 .online-winkel i {
@@ -90,4 +92,41 @@ main {
 
 .icon-size {
     font-size: 50px;
+}
+
+.modal {
+    width: 80vw;
+    transition: all 0.7s ease;
+    align-items: center;
+    box-shadow: 0 16px 22px 0 rgba(0, 0, 0, 0.6);
+}
+
+.modal-content img {
+    width: 10vw;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    outline: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-button {
+    padding: 7px 15px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.7em;
+    background-color: #9AC1D9;
+    border: none;
+    border-radius: 5px;
+}
+
+.red {
+    color: #f24e4e;
 }

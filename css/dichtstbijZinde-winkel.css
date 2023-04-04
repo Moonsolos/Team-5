@@ -51,6 +51,7 @@ main {
 
 .field{
     margin: 2% 2%;
+
 }
 
 .flex-container {
@@ -76,5 +77,22 @@ main {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     outline: none;
     text-align: center;
+}
+
+.button {
+    width: 80%;
+    background-color: #ADA8AD;
+    padding: 15px;
+    color: white;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+}
+.position-button{
+    padding-left: 90%;
+    padding-top: 15%;
 }
 

@@ -2,9 +2,14 @@ window.addEventListener('load', init);
 
 //Globals
 let apiUrl = '../dichtstbijZijndeWinkels/webservice-start-furkan/index.php';
+let locationApi = 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU';
 let fillName;
 let dropdown;
-let detailContent
+let detailContent;
+let storeDropdown;
+
+
+
 
 /**
  * Initialize after the DOM is ready
@@ -12,22 +17,33 @@ let detailContent
 
 function init()
 {
-    detailContent = document.getElementById('shop-dropdown');
-    cityDropdownList(apiUrl, fillCityDropdown);
+    if (typeof window.localStorage === "undefined") {
+        console.error('Local storage is not available in your browser');
+        return;
+    }
+    userLocation(locationApi,handlePosition);
+
     dropdown = document.getElementById('city-dropdown');
-    dropdown.addEventListener('change', fillCityShops);
+    detailContent = document.getElementById('shop-dropdown');
+
+
+    cityDropdownList(apiUrl, fillCityDropdown);
+
+
+    dropdown.addEventListener('click', fillCityShops);
+
 }
 
-function cityDropdownList(){
+function cityDropdownList(url,succesCall){
 
-    fetch(apiUrl)
+    fetch(url)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
             return response.json();
         })
-        .then(fillCityDropdown)
+        .then(succesCall)
         .catch(ajaxErrorHandler);
 
 }
@@ -43,6 +59,7 @@ function fillCityDropdown(cities){
 
 
         let cityDropdown = document.getElementById('city-dropdown');
+        storeDropdown = document.getElementById('shop-dropdown');
         let fillName = document.createElement('option');
         fillName.innerHTML = `${city.state}`;
         fillName.dataset.id = city.id;
@@ -51,7 +68,7 @@ function fillCityDropdown(cities){
 
 function fillCityShops(e){
     let target = e.target;
-    detailContent.innerHTML = '<option>Kies een winkel</option>';
+    detailContent.innerHTML = '';
     let id;
     switch (dropdown.value) {
         case 'Rotterdam':
@@ -68,16 +85,53 @@ function fillCityShops(e){
             break;
         case 'Schoonhoven':
             id = 5;
+            break;
     }
+    // store the city in localStorage
+    localStorage.setItem('city', dropdown.value);
+
+
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
+
 }
 function fillCity(stores){
     console.log(stores)
+
     for (let store of stores.winkel){
 
 
         let storeDropdown = document.getElementById('shop-dropdown');
         fillName = document.createElement('option');
         fillName.innerHTML =`${store}`;
+        fillName.dataset.value = store;
         storeDropdown.appendChild(fillName);
-    }}
+    }
+
+    storeDropdown.addEventListener('change',function (e){
+        let selectedStore = e.target.value;
+        localStorage.setItem('store',selectedStore);
+    })
+}
+
+// get the location of the user
+function userLocation() {
+    navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
+function handlePosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    fetch(`https://places.ls.hereapi.com/places/v1/discover/explore?at=${latitude},${longitude}&cat=sights-museums&apiKey=bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU`)
+        .then(response => response.json())
+        .then(data => {
+            // use the data obtained to place the shops on the map
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    console.log(position);
+}
+
+
+
