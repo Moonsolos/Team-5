@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winkelende senioren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/winkelmaatje.css">
+    <script src="../js/winkelmaatje.js" type="text/javascript" defer></script>
+</head>
+<body>
+<header>
+    <a href="../winkelmaatje/start.html">terug</a>
+    <button class="fav-button margin-2 font-size-2">Mijn winkelmaatjes</button>
+</header>
+
+<main>
+    <div class="background-page-title search">
+        <h1 class="page-title">Ik zoek een winkelmaatje</h1>
+    </div>
+    <section class="main-section">
+        <button class="submit top" id="all_shoppingbuddies">Toon alle winkelmaatjes</button>
+        <form id="city-form" class="city-form">
+            <label for="city-field">Vul uw woonplaats in om te zoeken naar winkelmaatjes in de buurt</label>
+            <div>
+                <input type="text" id="city-field" class="input city-field" placeholder="Zoek hier naar uw woonplaats"/> <button class="submit" type="submit">Zoek</button>
+            </div>
+            <div id="error-field"></div>
+
+        </form>
+    <div class="no-result-message" id="no-result"></div>
+        <ul id="list-shoppingbuddies" class="list-shoppingbuddies"></ul>
+
+        <dialog class="modal" id="shop-detail">
+            <div class="modal-content"></div>
+            <button class="fav-button">Voeg toe als maatje</button>
+            <button class="modal-close" id="modal-close">X</button>
+        </dialog>
+    </section>
+</main>
+
+</body>
+</html>

@@ -26,5 +26,5 @@ if ($city == "") {
 }
 
 if (empty($categoryIds)) {
-    $errors['categoryIds'] = 'Vul een categorie in';
+    $errors['categoryIds'] = 'Vul alstublieft een categorie in';
 }

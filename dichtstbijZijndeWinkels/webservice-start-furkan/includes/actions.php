@@ -35,23 +35,21 @@ function getCitys()
  */
 function getCityShops($id)
 {
-    $tags = [
-        1 => [
-            "winkel" => ['Kies een winkel','Albert Heijn','Dirk','Plus','Jumbo','Aldi','Lidl']
-
+    $tags =
+        [        1 => ["winkel" => ['Kies een winkel','Albert Heijn','Dirk','Plus','Jumbo','Aldi','Lidl'],
+                        "location" =>["latitude"=>51.926517, "longitude"=>4.462456]
         ],
-        2 => [
-            "winkel" => ['Kies een winkel','Dirk','Plus','Jumbo','Aldi','Lidl','Albert Heijn'],
-            "location" =>[52.370241,4.897300]
+                 2 => ["winkel" => ['Kies een winkel','Dirk','Plus','Jumbo','Aldi','Lidl','Albert Heijn'],
+                        "location" =>["latitude"=>52.370241, "longitude"=>4.897300]
         ],
-        3 => [
-            "winkel" => ['Kies een winkel','Jumbo','Aldi','Lidl','Albert Heijn','Dirk','Plus']
+                 3 => ["winkel" => ['Kies een winkel','Jumbo','Aldi','Lidl','Albert Heijn','Dirk','Plus'],
+                     "location" =>["latitude"=>52.011112, "longitude"=>4.711111]
         ],
-        4 => [
-            "winkel" => ['Kies een winkel','Aldi','Lidl','Albert Heijn','Dirk','Plus','Jumbo']
+                4 => ["winkel" => ['Kies een winkel','Aldi','Lidl','Albert Heijn','Dirk','Plus','Jumbo'],
+                    "location" =>["latitude"=>52.080329, "longitude"=>4.30965]
         ],
-        5 => [
-            "winkel" => ['Kies een winkel','Lidl','Alber Heijn','Plus','Spar','Gall&Gall','De Eekhoorn']
+                5 => ["winkel" => ['Kies een winkel','Lidl','Alber Heijn','Plus','Spar','Gall&Gall','De Eekhoorn'],
+                    "location" =>["latitude"=>51.94818900, "longitude"=>4.85392100]
         ],
     ];
 
