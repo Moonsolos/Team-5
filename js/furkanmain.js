@@ -7,7 +7,8 @@ let fillName;
 let dropdown;
 let detailContent;
 let storeDropdown;
-let nearbyShops;
+
+
 
 /**
  * Initialize after the DOM is ready
@@ -22,14 +23,13 @@ function init() {
 
     dropdown = document.getElementById('city-dropdown');
     detailContent = document.getElementById('shop-dropdown');
-    nearbyShops = document.getElementById('nearby-shops');
+
 
 
     cityDropdownList(apiUrl, fillCityDropdown);
 
 
     dropdown.addEventListener('change', fillCityShops);
-
 
 }
 
@@ -91,6 +91,7 @@ function fillCityShops(e) {
     localStorage.setItem('city', dropdown.value);
 
 
+
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
 
 }
@@ -113,7 +114,7 @@ function fillCity(stores) {
     storeDropdown.addEventListener('change', function (e) {
         let selectedStore = e.target.value;
         localStorage.setItem('store', selectedStore);
-        localStorage.setItem('location',stores.location)
+        localStorage.setItem('location',JSON.stringify(stores.location))
     })
 
 
@@ -124,8 +125,9 @@ function userLocation() {
 }
 
 function handlePosition(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+    let location = JSON.parse(localStorage.getItem('location'));
+    let latitude = location.latitude;
+    let longitude = location.longitude;
 
 
     let platform = new H.service.Platform({
@@ -135,7 +137,6 @@ function handlePosition(position) {
     let defaultLayers = platform.createDefaultLayers();
 
     // Instantiate (and display) a map object:
-    //bomba
     let map = new H.Map(
         document.getElementById('mapContainer'),
         defaultLayers.vector.normal.map,
@@ -144,19 +145,11 @@ function handlePosition(position) {
             center: {lat: latitude, lng: longitude}
         });
     let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
-
-
-  /*  fetch(`https://places.ls.hereapi.com/places/v1/discover/explore?at=${latitude},${longitude}&cat=sights-museums&apiKey=bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU`)
-        .then(response => response.json())
-        .then(data => {
-            // use the data obtained to place the shops on the map
-
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    console.log(position);*/
 }
+
+
+
+
 
 
 
