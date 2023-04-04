@@ -135,6 +135,7 @@ function handlePosition(position) {
     let defaultLayers = platform.createDefaultLayers();
 
     // Instantiate (and display) a map object:
+    //bomba
     let map = new H.Map(
         document.getElementById('mapContainer'),
         defaultLayers.vector.normal.map,
