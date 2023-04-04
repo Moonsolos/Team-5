@@ -8,6 +8,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
 h1{
     margin:0;
     padding:0;
@@ -21,13 +26,22 @@ main{
 }
 
 .main-section{
-    background-color: white;
-    width: 78%;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 79%;
     padding: 31px;
-    margin-top: 45px;
+    margin-top: 35px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     font-size: 3vh;
+    box-shadow: 3px 3px 3px #aaaaaa;
+}
+
+.city-form{
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    width:100%;
 }
 
 .buttons {
@@ -38,8 +52,13 @@ main{
 
 }
 
-p {
+.tile-content {
     margin-top:0;
+    margin-bottom: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 300px;
+    margin-right: 10px;
 }
 
 .button {
@@ -47,11 +66,11 @@ p {
     color: white;
     text-decoration: none;
     padding: 15px;
-    width: 400px;
+    width: 425px;
     font-size: 2em;
     font-family: 'Bebas Neue', cursive;
     text-align: center;
-    box-shadow: 5px 5px 5px #aaaaaa;
+    box-shadow: 3px 3px 3px #aaaaaa;
 }
 
 .submit {
@@ -63,10 +82,27 @@ p {
     border-radius: 15px;
     font-size: 1em;
     padding: 7px 30px;
+    margin: 20px 0 0 0;
+    max-width: 300px;
 }
 
 .submit:hover{
     background-color: #be664f;
+}
+
+.shoppingbuddy-tile{
+    background-color: rgba(216, 131, 111, 0.36);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+}
+
+.list-shoppingbuddies{
+    padding-left: 0;
+    height: 20vw;
+    overflow-y: scroll;
+    margin-bottom: 0;
 }
 
 .button:hover{
@@ -74,8 +110,8 @@ p {
 }
 
 .background-page-title {
-    width: 82%;
-    margin-top: 125px;
+    width: 83%;
+    margin-top: 115px;
 }
 
 .page-title {
@@ -90,4 +126,91 @@ p {
 .error {
     color: red;
     font-size: medium;
+    margin-top: 5px;
+}
+
+.error-input{
+    border-color: red;
+}
+
+.form {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.no-result-message{
+     margin-right: 40px;
+}
+
+.fav-button{
+    border: none;
+    background-color: #D8836F ;
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px #aaaaaa;
+    font-size: 1em;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.fav-button:hover{
+    background-color: #be664f;
+}
+
+.input {
+    margin: 20px 20px 0 0;
+    width: 70%;
+    height: 35px;
+    font-size: 1em;
+    box-shadow: 3px 3px 3px #aaaaaa;
+}
+
+.city-field {
+    background-image: url('../winkelmaatje/img/search.png');
+    background-size: 25px 25px;
+    background-position: 10px 6px;
+    background-repeat: no-repeat;
+    padding: 0 0 0 45px;
+}
+
+.top{
+    margin:0 0 20px 0;
+}
+
+.contact-icon {
+    width: 4%;
+    max-height: 45px;
+}
+
+.modal {
+    width: 60vw;
+    /*opacity: 0;*/
+    /*display: flex;*/
+    align-items: center;
+    box-shadow: 0 16px 22px 0 rgba(0, 0, 0, 0.6);
+    /*visibility: hidden;*/
+}
+
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal[open] {
+    transition: all 0.7s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    outline: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
 }

@@ -62,42 +62,42 @@ if (isset($_POST['submit'])) {
         <h1 class="page-title">Ik wil me opgeven als winkelmaatje</h1>
     </div>
     <section class="main-section">
-        <form action="" method="post" enctype="multipart/form-data">
-            <label class="label" for="name">Naam*</label>
-            <input class="input" id="name" type="text" name="name"
+        <form action="" method="post" class="form" enctype="multipart/form-data">
+            <label class="label" for="name">Naam*:</label>
+            <input class="input" id="name" type="text" name="name" placeholder="Vul hier uw voor- en achternaam in"
                    value="<?= isset($name) ? htmlentities($name) : '' ?>"/>
             <p class="error">
                 <?= $errors['name'] ?? '' ?>
             </p>
 
-            <label class="label" for="email">Email*</label>
-            <input class="input" id="email" type="text" name="email"
+            <label class="label" for="email">Email*:</label>
+            <input class="input" id="email" type="text" name="email" placeholder="Vul hier uw emailadres in"
                    value="<?= isset($email) ? htmlentities($email) : '' ?>"/>
             <p class="error">
                 <?= $errors['email'] ?? '' ?>
             </p>
+                <label class="label" for="phoneNumber">Telefoonnummer:</label>
+                <input class="input" id="phoneNumber" type="text" name="phoneNumber" placeholder="Vul hier uw telefoonnummer in"
+                       value="<?= isset($phoneNumber) ? htmlentities($phoneNumber) : '' ?>"/>
+                <p class="error">
+                    <?= $errors['phoneNumber'] ?? '' ?>
+                </p>
+                <label class="label" for="city">Woonplaats*:</label>
+                <input class="input" id="city" type="text" name="city" placeholder="Vul hier uw woonplaats in"
+                       value="<?= isset($city) ? htmlentities($city) : '' ?>"/>
+                <p class="error">
+                    <?= $errors['city'] ?? '' ?>
+                </p>
 
-            <label class="label" for="phoneNumber">Telefoonnummer</label>
-            <input class="input" id="phoneNumber" type="text" name="phoneNumber"
-                   value="<?= isset($phoneNumber) ? htmlentities($phoneNumber) : '' ?>"/>
+            <div>
+                <label>Categorie winkel(s)*:</label><br>
+                <input type="checkbox" name="category_ids[]" value="1" />Supermarkt
+                <input type="checkbox" name="category_ids[]" value="2" />Kledingwinkels
+                <input type="checkbox" name="category_ids[]" value="3" />Overig
+
+            </div>
             <p class="error">
-                <?= $errors['phoneNumber'] ?? '' ?>
-            </p>
-
-            <label class="label" for="city">Woonplaats*</label>
-            <input class="input" id="city" type="text" name="city"
-                   value="<?= isset($city) ? htmlentities($city) : '' ?>"/>
-            <p class="error">
-                <?= $errors['city'] ?? '' ?>
-            </p>
-
-            <label>Categorie winkel(s):</label><br>
-            <input type="checkbox" name="category_ids[]" value="1" />Supermarkt
-            <input type="checkbox" name="category_ids[]" value="2" />Kledingwinkels
-            <input type="checkbox" name="category_ids[]" value="3" />Overig
-
-            <p class="error">
-                <?= $errors['categoryShop'] ?? '' ?>
+                <?= $errors['categoryIds'] ?? '' ?>
             </p>
 
             <button class="submit" type="submit" name="submit">Geef me op</button>
