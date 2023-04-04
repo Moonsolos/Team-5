@@ -12,8 +12,14 @@ function init() {
     onlineShops = document.querySelector('#online-shops');
     popUp = document.querySelector('#shop-detail');
     popUpContent = document.querySelector('.modal-content');
+    let favoritesString = localStorage.getItem('shop');
+
+    if (favoritesString !== null) {
+        favorites = JSON.parse(favoritesString);
+    }
 
     popUp.addEventListener('click', popUpCloseHandler);
+    popUp.addEventListener('click', shopClickHandler);
     favButton.addEventListener('click', favClickHandler);
     onlineShops.addEventListener('click', shopClickHandler);
     onlineShops.addEventListener('click', heartClickHandler);
@@ -51,7 +57,11 @@ function createShopTiles(data) {
         h2.dataset.id = shop.id;
 
         let i = document.createElement('i');
-        i.classList.add('fa', 'fa-heart-o', 'icon-size');
+        if (favorites.includes(shop.id)) {
+            i.classList.add('fa', 'fa-heart', 'icon-size', 'red');
+        } else {
+            i.classList.add('fa', 'fa-heart-o', 'icon-size');
+        }
         i.dataset.id = shop.id;
 
         onlineShop.appendChild(img);
@@ -78,6 +88,7 @@ function detailFillHandler (details) {
 
     let img = document.createElement('img');
     img.src = shopData[shopId].img;
+    img.classList.add('modal-img-width');
 
     let h2 = document.createElement('h2');
     h2.innerHTML = shopData[shopId].name;
@@ -122,18 +133,67 @@ function heartClickHandler (e) {
         target.classList.add('fa-heart');
         target.classList.add('red');
 
-        favorites.push(target.dataset.id);
+        favorites.push(parseInt(target.dataset.id));
+        localStorage.setItem('shop', JSON.stringify(favorites));
         console.log(favorites);
     } else  {
         target.classList.remove('fa-heart')
         target.classList.remove('red');
         target.classList.add('fa-heart-o');
 
-        favorites.splice(target.dataset.id, 1);
+        let itemIndex = favorites.indexOf(parseInt(target.dataset.id));
+        favorites.splice(itemIndex, 1);
+        localStorage.setItem('shop', JSON.stringify(favorites));
     }
 }
 
 function favClickHandler(e) {
+    console.log(favorites);
+    popUpContent.innerHTML = '';
+    let onlineShop;
+
+
+    for (let id of favorites) {
+        onlineShop = document.createElement('div');
+        onlineShop.classList.add('online-winkel');
+        onlineShop.dataset.id = id;
+
+        let img = document.createElement('img');
+        img.src = shopData[id].img;
+        img.classList.add('online-winkel-img');
+        img.dataset.id = id;
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = shopData[id].name;
+        h2.classList.add('online-winkel-title');
+        h2.dataset.id = id;
+
+        let div = document.createElement('div');
+        div.innerHTML = ' ';
+        div.dataset.id = id;
+
+        onlineShop.appendChild(img);
+        onlineShop.appendChild(h2);
+        onlineShop.appendChild(div);
+
+        popUpContent.appendChild(onlineShop);
+    }
+
+    if (popUpContent.innerHTML === '') {
+        let title = document.createElement('h1');
+        title.innerHTML = 'Favorieten';
+        popUpContent.appendChild(title);
+
+        let p = document.createElement('p');
+        p.innerHTML = `U heeft nog geen favorieten toegevoegd!`;
+        popUpContent.appendChild(p);
+    } else {
+        let title = document.createElement('h1');
+        title.innerHTML = 'Favorieten';
+        popUpContent.prepend(title);
+    }
+
+    popUp.showModal();
 
 }
 
