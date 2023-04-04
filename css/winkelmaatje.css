@@ -109,9 +109,17 @@ main{
     background-color: #be664f;
 }
 
+.margin-2{
+    margin: 20px;
+}
+
 .background-page-title {
     width: 83%;
     margin-top: 115px;
+}
+
+.search {
+    margin-top: 37px;
 }
 
 .page-title {
@@ -144,6 +152,7 @@ main{
 }
 
 .fav-button{
+    float: right;
     border: none;
     background-color: #D8836F ;
     color: black;
@@ -154,6 +163,10 @@ main{
     box-shadow: 3px 3px 3px #aaaaaa;
     font-size: 1em;
     font-family: 'Bebas Neue', cursive;
+}
+
+.font-size-2{
+    font-size: x-large;
 }
 
 .fav-button:hover{
