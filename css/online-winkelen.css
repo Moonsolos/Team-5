@@ -99,9 +99,10 @@ main {
     transition: all 0.7s ease;
     align-items: center;
     box-shadow: 0 16px 22px 0 rgba(0, 0, 0, 0.6);
+    padding: 2%;
 }
 
-.modal-content img {
+.modal-img-width {
     width: 10vw;
 }
 
