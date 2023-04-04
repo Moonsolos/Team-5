@@ -76,3 +76,21 @@ main {
     outline: none;
     text-align: center;
 }
+
+.nextButton {
+    display: flex;
+    justify-content: center;
+    background-color: #FCEFDB;
+    padding: 12px;
+    color: black;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+
+}
+
+.map {
+    display: flex;
+    width: 100%;
+}

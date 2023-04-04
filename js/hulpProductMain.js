@@ -5,7 +5,9 @@ let apiUrl = '../hulpProduct/webservice-christian/index.php';
 let fillName;
 let dropdown;
 let detailContent;
-let i = 0
+let clickEventHandler;
+let imageShower
+
 
 /**
  * Initialize after the DOM is ready
@@ -16,6 +18,8 @@ function init()
     cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
     dropdown.addEventListener('change', fillCityShops);
+    clickEventHandler = document.getElementById('button');
+    clickEventHandler.addEventListener('click', buttonHandler);
 
 }
 
@@ -52,7 +56,6 @@ function fillCityDropdown(cities){
 
 function fillCityShops(e){
     detailContent.innerHTML = '<option> Kies een winkel </option>';
-    i = 0
     let id;
     switch (dropdown.value) {
         case 'Gouda':
@@ -74,12 +77,35 @@ function fillCityShops(e){
 function fillCity(stores){
     console.log(stores)
     for (let store of stores.winkels){
-        i++
-
         let storeDropdown = document.getElementById('shop-dropdown');
         storeName = document.createElement('option');
-        storeName.innerHTML = `${i} ${store}`;
+        storeName.innerHTML = `${store}`;
+        localStorage.setItem('image', stores.image)
+        // storeName.dataset.value = store;
         storeDropdown.appendChild(storeName);
     }}
 
+    // storeDropdown.addEventListener('change', function (e) {
+    //     let selectedStore = e.target.value;
+    //     localStorage.setItem('store', selectedStore)
+        // localStorage.setItem('img', stores.img)
+    // })
+
+function buttonHandler(e){
+    cityDropdownList(`../hulpProduct/webservice-christian/index.php?id=${id}`, fillMap)
+}
+
+function fillMap(){
+}
+
+// function showImage(stores){
+//     for (let store of stores.img) {
+//         let mapDropdown = document.getElementsByClassName('map');
+//         mapName = document.createElement('h1');
+//         mapName.innerHTML = `${store}`;
+//         // storeName.dataset.value = store;
+//         storeDropdown.appendChild(storeName);
+//     }
+//     // localStorage.getItem('store')
+// }
 

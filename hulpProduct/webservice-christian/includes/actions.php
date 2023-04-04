@@ -33,16 +33,21 @@ function getCitys()
     {
         $tags = [
             1 => [
-                "winkels" => ['Albert Heijn Burgemeester van Douwesingel', 'Albert Heijn Lekkenburg', 'Albert Heijn Markt', 'COOP Nieuwe-Marktpassage', 'COOP Vuurdoornlaan', 'Dirk Goverwelle', 'Hoogvliet Plataanstraat', 'Hoogvliet Nieuwe Gouwe', 'JUMBO Ruigenburg', 'JUMBO Sportlaan', 'Lidl Sportlaan', 'Lidl Westerkade', 'Lidl Ruigenburg', 'PLUS van Ee', 'PLUS Koorneef', 'SPAR City']
+                "winkels" => ['Albert Heijn Markt', 'COOP Nieuwe-Marktpassage',],
+//                    'JUMBO Ruigenburg', 'JUMBO Sportlaan', 'Lidl Sportlaan', 'Lidl Westerkade', 'Lidl Ruigenburg', 'PLUS van Ee', 'PLUS Koorneef', 'SPAR City'
+                "image" => ['../img/citySelectBox.png', 'test',]
             ],
             2 => [
-                "winkels" => ['unox', 'healthy', 'stamppot', 'boerenkool']
+                "winkels" => ['Albert Heijn Burgemeester van Douwesingel', 'Albert Heijn Lekkenburg',],
+                "image" => ['test', 'test',]
             ],
             3 => [
-                "winkels" => ['omnomnom']
+                "winkels" => ['COOP Vuurdoornlaan', 'Dirk Goverwelle',],
+                "image" => ['test', 'test',]
             ],
             4 => [
-                "winkels" => ['kapsalon', 'tasty', 'meat']
+                "winkels" => ['Hoogvliet Plataanstraat', 'Hoogvliet Nieuwe Gouwe',],
+                "image" => ['test', 'test',]
             ],
         ];
 
