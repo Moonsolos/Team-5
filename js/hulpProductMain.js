@@ -4,7 +4,8 @@ window.addEventListener('load', init);
 let apiUrl = '../hulpProduct/webservice-christian/index.php';
 let fillName;
 let dropdown;
-let detailContent
+let detailContent;
+let i = 0
 
 /**
  * Initialize after the DOM is ready
@@ -15,6 +16,7 @@ function init()
     cityDropdownList(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
     dropdown.addEventListener('change', fillCityShops);
+
 }
 
 function cityDropdownList(url, successCall){
@@ -49,8 +51,8 @@ function fillCityDropdown(cities){
 }
 
 function fillCityShops(e){
-    let target = e.target;
-    detailContent.innerHTML = '<option>Kies een winkel</option>';
+    detailContent.innerHTML = '<option> Kies een winkel </option>';
+    i = 0
     let id;
     switch (dropdown.value) {
         case 'Gouda':
@@ -72,12 +74,12 @@ function fillCityShops(e){
 function fillCity(stores){
     console.log(stores)
     for (let store of stores.winkels){
-
+        i++
 
         let storeDropdown = document.getElementById('shop-dropdown');
-        fillName = document.createElement('option');
-        fillName.innerHTML = `${store}`;
-        storeDropdown.appendChild(fillName);
+        storeName = document.createElement('option');
+        storeName.innerHTML = `${i} ${store}`;
+        storeDropdown.appendChild(storeName);
     }}
 
 

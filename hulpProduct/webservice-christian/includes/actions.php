@@ -33,7 +33,7 @@ function getCitys()
     {
         $tags = [
             1 => [
-                "winkels" => ['cheese', 'oven']
+                "winkels" => ['Albert Heijn Burgemeester van Douwesingel', 'Albert Heijn Lekkenburg', 'Albert Heijn Markt', 'COOP Nieuwe-Marktpassage', 'COOP Vuurdoornlaan', 'Dirk Goverwelle', 'Hoogvliet Plataanstraat', 'Hoogvliet Nieuwe Gouwe', 'JUMBO Ruigenburg', 'JUMBO Sportlaan', 'Lidl Sportlaan', 'Lidl Westerkade', 'Lidl Ruigenburg', 'PLUS van Ee', 'PLUS Koorneef', 'SPAR City']
             ],
             2 => [
                 "winkels" => ['unox', 'healthy', 'stamppot', 'boerenkool']
