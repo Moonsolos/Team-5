@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>Winkels</title>
     <meta charset="UTF-8">
     <title>Online winkelen</title>
@@ -9,7 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+            type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+            type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="../js/furkanmain.js" defer></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+            type="text/javascript" charset="utf-8"></script>
+
 </head>
 <body>
 <header>
@@ -20,6 +29,7 @@
 <main>
     <h1 class="page-title">MEEST GEKOZEN WINKELS IN DE BUURT</h1>
 <section id="nearby-shops" ></section>
+    <div style="width: 640px; height: 480px" id="mapContainer"></div>
 </main>
 
 </body>

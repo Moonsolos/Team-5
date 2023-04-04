@@ -7,34 +7,33 @@ let fillName;
 let dropdown;
 let detailContent;
 let storeDropdown;
-
-
-
+let nearbyShops;
 
 /**
  * Initialize after the DOM is ready
  */
 
-function init()
-{
+function init() {
     if (typeof window.localStorage === "undefined") {
         console.error('Local storage is not available in your browser');
         return;
     }
-    userLocation(locationApi,handlePosition);
+    userLocation(locationApi, handlePosition);
 
     dropdown = document.getElementById('city-dropdown');
     detailContent = document.getElementById('shop-dropdown');
+    nearbyShops = document.getElementById('nearby-shops');
 
 
     cityDropdownList(apiUrl, fillCityDropdown);
 
 
-    dropdown.addEventListener('click', fillCityShops);
+    dropdown.addEventListener('change', fillCityShops);
+
 
 }
 
-function cityDropdownList(url,succesCall){
+function cityDropdownList(url, succesCall) {
 
     fetch(url)
         .then((response) => {
@@ -48,12 +47,12 @@ function cityDropdownList(url,succesCall){
 
 }
 
-function ajaxErrorHandler(data){
+function ajaxErrorHandler(data) {
     console.error(data);
 }
 
 
-function fillCityDropdown(cities){
+function fillCityDropdown(cities) {
     for (let city of cities) {
         console.log(city);
 
@@ -64,9 +63,10 @@ function fillCityDropdown(cities){
         fillName.innerHTML = `${city.state}`;
         fillName.dataset.id = city.id;
         cityDropdown.appendChild(fillName);
-    }}
+    }
+}
 
-function fillCityShops(e){
+function fillCityShops(e) {
     let target = e.target;
     detailContent.innerHTML = '';
     let id;
@@ -94,25 +94,30 @@ function fillCityShops(e){
     cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
 
 }
-function fillCity(stores){
-    console.log(stores)
 
-    for (let store of stores.winkel){
+
+function fillCity(stores) {
+    console.log(stores);
+
+    for (let store of stores.winkel) {
 
 
         let storeDropdown = document.getElementById('shop-dropdown');
         fillName = document.createElement('option');
-        fillName.innerHTML =`${store}`;
+        fillName.innerHTML = `${store}`;
         fillName.dataset.value = store;
         storeDropdown.appendChild(fillName);
+
     }
 
-    storeDropdown.addEventListener('change',function (e){
+    storeDropdown.addEventListener('change', function (e) {
         let selectedStore = e.target.value;
-        localStorage.setItem('store',selectedStore);
+        localStorage.setItem('store', selectedStore);
+        localStorage.setItem('location',stores.location)
     })
-}
 
+
+}
 // get the location of the user
 function userLocation() {
     navigator.geolocation.getCurrentPosition(handlePosition);
@@ -122,15 +127,34 @@ function handlePosition(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
-    fetch(`https://places.ls.hereapi.com/places/v1/discover/explore?at=${latitude},${longitude}&cat=sights-museums&apiKey=bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU`)
+
+    let platform = new H.service.Platform({
+        'apikey': 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU'
+    });
+
+    let defaultLayers = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    let map = new H.Map(
+        document.getElementById('mapContainer'),
+        defaultLayers.vector.normal.map,
+        {
+            zoom: 12,
+            center: {lat: latitude, lng: longitude}
+        });
+    let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
+
+
+  /*  fetch(`https://places.ls.hereapi.com/places/v1/discover/explore?at=${latitude},${longitude}&cat=sights-museums&apiKey=bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU`)
         .then(response => response.json())
         .then(data => {
             // use the data obtained to place the shops on the map
+
         })
         .catch(error => {
             console.error('Error:', error);
         });
-    console.log(position);
+    console.log(position);*/
 }
 
 

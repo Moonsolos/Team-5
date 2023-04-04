@@ -7,12 +7,14 @@ function getCitys()
     return [
         [
             "id" => 1,
-            "state" => "Rotterdam",
+            "name" => "Albert Heijn",
+            "img" => "",
 
         ],
         [
             "id" => 2,
-            "state" => "Amsterdam",
+            "name" => "Dirk",
+            "img" => "",
         ],
         [
             "id" => 3,
@@ -38,11 +40,9 @@ function getCityShops($id)
     $tags = [
         1 => [
             "winkel" => ['Kies een winkel','Albert Heijn','Dirk','Plus','Jumbo','Aldi','Lidl']
-
         ],
         2 => [
-            "winkel" => ['Kies een winkel','Dirk','Plus','Jumbo','Aldi','Lidl','Albert Heijn'],
-            "location" =>[52.370241,4.897300]
+            "winkel" => ['Kies een winkel','Dirk','Plus','Jumbo','Aldi','Lidl','Albert Heijn']
         ],
         3 => [
             "winkel" => ['Kies een winkel','Jumbo','Aldi','Lidl','Albert Heijn','Dirk','Plus']
