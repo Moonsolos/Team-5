@@ -73,47 +73,47 @@ function getOnlineShopsDetails($id)
         2 => [
             "id" => 2,
             "cijfer" => 7,
-            "text" => "",
+            "text" => "Met de Albert Heijn webshop hoef je de deur niet meer uit voor je dagelijkse boodschappen. Bestel gemakkelijk en snel online en laat je boodschappen thuisbezorgen of haal ze op bij een pick-up point bij jou in de buurt. Ontdek het ruime assortiment en profiteer van de beste aanbiedingen en service.",
         ],
         3 => [
             "id" => 3,
             "cijfer" => 7,
-            "text" => "",
+            "text" => "Bij de Hema webshop vind je alles wat je nodig hebt voor een leuk en gemakkelijk leven. Of je nu op zoek bent naar kleding, woonaccessoires, schoolspullen, of iets lekkers voor bij de koffie, bij Hema vind je het allemaal. Bestel nu gemakkelijk online en profiteer van de beste deals en snelle levering.",
         ],
         4 => [
             "id" => 4,
             "cijfer" => 8,
-            "text" => "",
+            "text" => "Bij About You vind je de nieuwste fashion trends en de beste deals van de grootste merken. Of je nu op zoek bent naar casual kleding, feestelijke outfits of sportieve looks, bij About You ben je aan het juiste adres. Shop nu gemakkelijk online en ontdek een wereld van fashion en stijl.",
         ],
         5 => [
             "id" => 5,
             "cijfer" => 8,
-            "text" => "",
+            "text" => "Bij de A.Vogel webshop vind je een breed assortiment aan natuurlijke gezondheidsproducten, waaronder kruidenpreparaten, homeopathische geneesmiddelen en voedingssupplementen. A.Vogel biedt oplossingen voor uiteenlopende gezondheidsklachten en streeft naar een gezonde en duurzame levensstijl. Bestel nu gemakkelijk online en profiteer van de hoogwaardige kwaliteit en expertise van A.Vogel.",
         ],
         6 => [
             "id" => 6,
             "cijfer" => 4,
-            "text" => "",
+            "text" => "Bij de Action webshop vind je de leukste en handigste producten voor de laagste prijzen. Of je nu op zoek bent naar huishoudelijke artikelen, speelgoed, kleding, of decoratie, bij Action vind je het allemaal. Bestel nu gemakkelijk online en profiteer van de scherpe prijzen en snelle levering.",
         ],
         7 => [
             "id" => 7,
             "cijfer" => 4,
-            "text" => "",
+            "text" => "Amazon is de grootste online retailer ter wereld en biedt een ongekend assortiment aan producten, van elektronica en boeken tot kleding en meubels. Met Amazon Prime profiteer je van snelle levering, exclusieve kortingen en gratis verzending. Ontdek het gemak van online winkelen bij Amazon en vind alles wat je nodig hebt, snel en eenvoudig.",
         ],
         8 => [
             "id" => 8,
             "cijfer" => 6,
-            "text" => "",
+            "text" => "Zalando is dé online fashion retailer waar je alles vindt op het gebied van kleding, schoenen en accessoires. Met een uitgebreid aanbod van meer dan 3000 merken vind je bij Zalando altijd de nieuwste trends en stijlen. Bestel nu gemakkelijk online en profiteer van snelle levering, gratis verzending en gratis retourneren.",
         ],
         9 => [
             "id" => 9,
             "cijfer" => 5,
-            "text" => "",
+            "text" => "Bij de Zeeman webshop vind je betaalbare en duurzame kleding voor het hele gezin. Van basics tot trendy items, bij Zeeman vind je het allemaal. Bestel nu gemakkelijk online en profiteer van de hoge kwaliteit en lage prijzen die Zeeman te bieden heeft. Zo bespaar je geld én draag je bij aan een duurzame wereld.",
         ],
         10 => [
             "id" => 10,
             "cijfer" => 3,
-            "text" => "",
+            "text" => "Bij de Gall&Gall webshop vind je een uitgebreid assortiment aan wijn, bier en sterke drank. Of je nu op zoek bent naar een goede fles wijn voor bij het eten, speciaalbier voor in het weekend of een mooie fles whisky om cadeau te geven, bij Gall&Gall vind je het allemaal. Bestel nu gemakkelijk online en laat het thuisbezorgen.",
         ]
     ];
 

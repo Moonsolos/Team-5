@@ -5,6 +5,7 @@ let onlineShops;
 let popUp;
 let popUpContent;
 let shopData = {};
+let favorites = [];
 
 function init() {
     let favButton = document.querySelector('#fav-button');
@@ -51,6 +52,7 @@ function createShopTiles(data) {
 
         let i = document.createElement('i');
         i.classList.add('fa', 'fa-heart-o', 'icon-size');
+        i.dataset.id = shop.id;
 
         onlineShop.appendChild(img);
         onlineShop.appendChild(h2);
@@ -110,8 +112,24 @@ function popUpCloseHandler (e) {
 
 function heartClickHandler (e) {
     let target = e.target;
-    if (target.classList.contains('icon-size')) {
 
+    if (target.nodeName !== 'I') {
+        return;
+    }
+
+    if (target.classList.contains('fa-heart-o')) {
+        target.classList.remove('fa-heart-o');
+        target.classList.add('fa-heart');
+        target.classList.add('red');
+
+        favorites.push(target.dataset.id);
+        console.log(favorites);
+    } else  {
+        target.classList.remove('fa-heart')
+        target.classList.remove('red');
+        target.classList.add('fa-heart-o');
+
+        favorites.splice(target.dataset.id, 1);
     }
 }
 
