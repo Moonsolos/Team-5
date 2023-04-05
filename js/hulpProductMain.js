@@ -6,7 +6,11 @@ let fillName;
 let dropdown;
 let detailContent;
 let clickEventHandler;
-let imageShower
+let storeDropdown;
+let newId;
+let i;
+let storeData = {};
+let lastCityId;
 
 
 /**
@@ -15,7 +19,7 @@ let imageShower
 function init()
 {
     detailContent = document.getElementById('shop-dropdown');
-    cityDropdownList(apiUrl, fillCityDropdown);
+    apiLoader(apiUrl, fillCityDropdown);
     dropdown = document.getElementById('city-dropdown');
     dropdown.addEventListener('change', fillCityShops);
     clickEventHandler = document.getElementById('button');
@@ -23,7 +27,7 @@ function init()
 
 }
 
-function cityDropdownList(url, successCall){
+function apiLoader(url, successCall){
 
     fetch(url)
         .then((response) => {
@@ -57,6 +61,7 @@ function fillCityDropdown(cities){
 function fillCityShops(e){
     detailContent.innerHTML = '<option> Kies een winkel </option>';
     let id;
+    i = -1
     switch (dropdown.value) {
         case 'Gouda':
             id = 1;
@@ -71,17 +76,22 @@ function fillCityShops(e){
             id = 3;
             break;
     }
-    cityDropdownList(`../hulpProduct/webservice-christian/index.php?id=${id}`, fillCity)
+    apiLoader(`../hulpProduct/webservice-christian/index.php?id=${id}`, fillStores)
+    lastCityId = id;
 }
 
-function fillCity(stores){
-    console.log(stores)
+function fillStores(stores){
+
+    storeData[stores.id]=stores
+    console.log(storeData)
+
     for (let store of stores.winkels){
-        let storeDropdown = document.getElementById('shop-dropdown');
+        i++
+        storeDropdown = document.getElementById('shop-dropdown');
         storeName = document.createElement('option');
-        storeName.innerHTML = `${store}`;
-        localStorage.setItem('image', stores.image)
-        // storeName.dataset.value = store;
+        storeName.innerHTML = `${i} ${store}`;
+        storeName.dataset.id = i;
+        // storeName.dataset.id2 = stores.id;
         storeDropdown.appendChild(storeName);
     }}
 
@@ -92,11 +102,19 @@ function fillCity(stores){
     // })
 
 function buttonHandler(e){
-    cityDropdownList(`../hulpProduct/webservice-christian/index.php?id=${id}`, fillMap)
+    newId = storeDropdown.value[0];
+    storeDropdown = document.getElementById('map');
+    storeName = document.createElement('img');
+    storeName.src = `${storeData[lastCityId].image[newId]}`;
+    storeName.classList.add('map');
+    storeDropdown.appendChild(storeName)
 }
 
 function fillMap(){
+    console.log('hoi')
 }
+
+
 
 // function showImage(stores){
 //     for (let store of stores.img) {

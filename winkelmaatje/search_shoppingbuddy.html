@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <a href="../winkelmaatje/start.html">terug</a>
+    <a href="../winkelmaatje/start.html"> <img src="../img/terug.png" alt="terug" class="back-button"/> </a>
     <button class="fav-button margin-2 font-size-2">Mijn winkelmaatjes</button>
 </header>
 
@@ -25,12 +25,13 @@
         <form id="city-form" class="city-form">
             <label for="city-field">Vul uw woonplaats in om te zoeken naar winkelmaatjes in de buurt</label>
             <div>
-                <input type="text" id="city-field" class="input city-field" placeholder="Zoek hier naar uw woonplaats"/> <button class="submit" type="submit">Zoek</button>
+                <input type="text" id="city-field" class="input city-field" placeholder="Zoek hier naar uw woonplaats"/>
+                <button class="submit" type="submit">Zoek</button>
             </div>
             <div id="error-field"></div>
 
         </form>
-    <div class="no-result-message" id="no-result"></div>
+        <div class="no-result-message" id="no-result"></div>
         <ul id="list-shoppingbuddies" class="list-shoppingbuddies"></ul>
 
         <dialog class="modal" id="shop-detail">
