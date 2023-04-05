@@ -132,7 +132,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.albert-img{
+img{
     height: 8vh;
 }
 
@@ -151,4 +151,8 @@ main {
 
 .popup-model{
     width: 90%;
+}
+
+.info-field{
+
 }
