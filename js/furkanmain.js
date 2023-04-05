@@ -115,6 +115,7 @@ function fillCity(stores) {
         let selectedStore = e.target.value;
         localStorage.setItem('store', selectedStore);
         localStorage.setItem('location',JSON.stringify(stores.location))
+
     })
 
 
@@ -146,6 +147,7 @@ function handlePosition(position) {
         });
     let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
 }
+
 
 
 
