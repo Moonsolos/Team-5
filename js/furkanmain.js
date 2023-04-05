@@ -7,6 +7,12 @@ let fillName;
 let dropdown;
 let detailContent;
 let storeDropdown;
+let popupButton;
+let popup;
+let modelContent;
+let popupData = {};
+let lastShopId;
+let mapLoaded = false;
 
 
 
@@ -19,18 +25,40 @@ function init() {
         console.error('Local storage is not available in your browser');
         return;
     }
-    userLocation(locationApi, handlePosition);
 
     dropdown = document.getElementById('city-dropdown');
     detailContent = document.getElementById('shop-dropdown');
+    popupButton = document.getElementById('popup-button');
+    popup = document.getElementById('popup-model');
+    modelContent = document.querySelector('.model-content');
+
 
 
 
     cityDropdownList(apiUrl, fillCityDropdown);
 
 
+    popupButton.addEventListener('click',popupClickhandler);
+    popup.addEventListener('click',popupClosehandler);
     dropdown.addEventListener('change', fillCityShops);
 
+
+}
+function popupClickhandler(e){
+    console.log(popupData[lastShopId].image);
+    let img = document.createElement('img');
+    img.src = popupData[lastShopId].image;
+    popup.showModal();
+    userLocation(locationApi, handlePosition);
+
+    modelContent.appendChild(img);
+
+}
+
+function popupClosehandler(e){
+    if (e.target.classList.contains('modal-close')){
+        popup.close();
+    }
 }
 
 function cityDropdownList(url, succesCall) {
@@ -100,6 +128,10 @@ function fillCityShops(e) {
 function fillCity(stores) {
     console.log(stores);
 
+
+    popupData[stores.id] = stores;
+    console.log(popupData[stores.id].image);
+    lastShopId = stores.id;
     for (let store of stores.winkel) {
 
 

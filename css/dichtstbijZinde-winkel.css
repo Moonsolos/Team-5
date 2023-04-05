@@ -79,7 +79,7 @@ main {
     text-align: center;
 }
 
-.button {
+#popup-button{
     width: 80%;
     background-color: #ADA8AD;
     padding: 15px;
@@ -134,5 +134,21 @@ main {
 
 .albert-img{
     height: 8vh;
+}
 
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    outline: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.popup-model{
+    width: 90%;
 }
