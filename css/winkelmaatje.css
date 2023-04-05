@@ -73,6 +73,11 @@ main{
     box-shadow: 3px 3px 3px #aaaaaa;
 }
 
+.back-button {
+    width: 50%;
+    margin: 10px 0 10px 10px;
+}
+
 .submit {
     background-color: #D8836F ;
     color: black;
@@ -115,7 +120,7 @@ main{
 
 .background-page-title {
     width: 83%;
-    margin-top: 115px;
+    margin-top: 54px;
 }
 
 .search {

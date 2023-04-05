@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 <header>
-    <a href="../winkelmaatje/start.html">terug</a>
+    <a href="../winkelmaatje/start.html"> <img src="../img/terug.png" alt="terug" class="back-button"/> </a>
 </header>
 
 <main>
