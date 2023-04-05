@@ -199,4 +199,8 @@ function favClickHandler(e) {
 
 function ajaxErrorHandler(data) {
     console.log(data);
+    let error = document.createElement('p');
+    error.innerHTML = 'Jeeminee, de website werkt niet! Ik kan wel proberen uit te leggen wat er niet werkt, maar dat snapt u toch niet';
+    error.classList.add('red');
+    onlineShops.before(error);
 }
