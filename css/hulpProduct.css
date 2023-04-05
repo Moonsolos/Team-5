@@ -91,6 +91,8 @@ main {
 }
 
 .map {
+    margin-top: 2%;
     display: flex;
     width: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
