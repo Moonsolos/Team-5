@@ -37,19 +37,18 @@ function init() {
 }
 
 function ajaxRequest(url, successCallBack) {
-     fetch(url)
-         .then((response) => {
-             if (!response.ok) {
-                 throw new Error(response.statusText);
-             }
-             return response.json();
-         })
-         .then(successCallBack)
-         .catch(ajaxErrorHandler);
- }
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            return response.json();
+        })
+        .then(successCallBack)
+        .catch(ajaxErrorHandler);
+}
 
-function formSubmitHandler(e)
-{
+function formSubmitHandler(e) {
     e.preventDefault();
 
     let city = inputField.value;
@@ -60,10 +59,10 @@ function formSubmitHandler(e)
         //Reset the field
         inputField.value = '';
         inputField.classList.remove('error-input');
-        errorMessage.innerHTML= '';
+        errorMessage.innerHTML = '';
     } else {
         //Add an error state with CSS
-        errorMessage.innerHTML= 'Vul alstublieft uw woonplaats in';
+        errorMessage.innerHTML = 'Vul alstublieft uw woonplaats in';
         inputField.classList.add('error-input');
     }
 }
@@ -101,18 +100,18 @@ function detailFillHandler(details) {
     popUp.showModal();
 }
 
-function popUpCloseHandler (e) {
+function popUpCloseHandler(e) {
     if (e.target.nodeName === 'DIALOG' || e.target.classList.contains('modal-close')) {
         popUp.close();
     }
 }
 
-function showShoppingbuddies(data){
+function showShoppingbuddies(data) {
     console.log(data);
     list.innerHTML = ' ';
     let noResultMessage = document.getElementById('no-result');
 
-    if (data.length === 0){
+    if (data.length === 0) {
         noResultMessage.innerHTML = 'Er zijn geen winkelmaatjes gevonden in deze stad. Probeer een andere stad of controleer of u de stad goed geschreven heeft.'
     } else {
         noResultMessage.innerHTML = ' ';
@@ -127,33 +126,33 @@ function ajaxErrorHandler(data) {
 }
 
 function createTiles(shoppingbuddy) {
-        let shoppingbuddyTile = document.createElement('li');
-        shoppingbuddyTile.classList.add('shoppingbuddy-tile');
+    let shoppingbuddyTile = document.createElement('li');
+    shoppingbuddyTile.classList.add('shoppingbuddy-tile');
 
-        let tileContentName = document.createElement('p');
-        let tileContentCity = document.createElement('p');
-        let tileContentCategory = document.createElement('p');
-        let tileContentInfoIcon = document.createElement('img');
+    let tileContentName = document.createElement('p');
+    let tileContentCity = document.createElement('p');
+    let tileContentCategory = document.createElement('p');
+    let tileContentInfoIcon = document.createElement('img');
 
-        tileContentName.classList.add('tile-content');
-        tileContentCity.classList.add('tile-content');
-        tileContentCategory.classList.add('tile-content');
+    tileContentName.classList.add('tile-content');
+    tileContentCity.classList.add('tile-content');
+    tileContentCategory.classList.add('tile-content');
 
 
-        tileContentInfoIcon.classList.add('contact-icon');
-        tileContentInfoIcon.dataset.id = shoppingbuddy.id;
+    tileContentInfoIcon.classList.add('contact-icon');
+    tileContentInfoIcon.dataset.id = shoppingbuddy.id;
 
-        tileContentInfoIcon.src = 'img/contact-us.png';
-        tileContentName.innerHTML = `${shoppingbuddy.name}`;
-        tileContentCity.innerHTML = `${shoppingbuddy.city}`;
-        tileContentCategory.innerHTML = `${shoppingbuddy.categories.join(', ')}`;
+    tileContentInfoIcon.src = 'img/contact-us.png';
+    tileContentName.innerHTML = `${shoppingbuddy.name}`;
+    tileContentCity.innerHTML = `${shoppingbuddy.city}`;
+    tileContentCategory.innerHTML = `${shoppingbuddy.categories.join(', ')}`;
 
-        shoppingbuddyTile.appendChild(tileContentName);
-        shoppingbuddyTile.appendChild(tileContentCity);
-        shoppingbuddyTile.appendChild(tileContentCategory);
-        shoppingbuddyTile.appendChild(tileContentInfoIcon)
+    shoppingbuddyTile.appendChild(tileContentName);
+    shoppingbuddyTile.appendChild(tileContentCity);
+    shoppingbuddyTile.appendChild(tileContentCategory);
+    shoppingbuddyTile.appendChild(tileContentInfoIcon)
 
-        list.appendChild(shoppingbuddyTile);
+    list.appendChild(shoppingbuddyTile);
 
 }
 
