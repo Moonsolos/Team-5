@@ -6,6 +6,7 @@ let popUp;
 let popUpContent;
 let shopData = {};
 let favorites = [];
+let popUpOpen = false;
 
 function init() {
     let favButton = document.querySelector('#fav-button');
@@ -111,13 +112,17 @@ function detailFillHandler (details) {
     popUpContent.appendChild(button);
 
 
-    popUp.showModal();
+    if (popUpOpen === false) {
+        popUp.showModal();
+        popUpOpen = true;
+    }
 
 }
 
 function popUpCloseHandler (e) {
     if (e.target.nodeName === 'DIALOG' || e.target.classList.contains('modal-close')) {
         popUp.close();
+        popUpOpen = false;
     }
 }
 
@@ -194,6 +199,7 @@ function favClickHandler(e) {
     }
 
     popUp.showModal();
+    popUpOpen = true;
 
 }
 

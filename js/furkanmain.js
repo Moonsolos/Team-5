@@ -1,6 +1,6 @@
 window.addEventListener('load', init);
 
-//Globals
+//Global variables
 let apiUrl = '../dichtstbijZijndeWinkels/webservice-start-furkan/index.php';
 let locationApi = 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU';
 let fillName;
@@ -12,8 +12,6 @@ let popup;
 let modelContent;
 let popupData = {};
 let lastShopId;
-let mapLoaded = false;
-
 
 
 /**
@@ -45,21 +43,41 @@ function init() {
 
 }
 function popupClickhandler(e){
+
     console.log(popupData[lastShopId].image);
-    let img = document.createElement('img');
-    img.src = popupData[lastShopId].image;
     popup.showModal();
     userLocation(locationApi, handlePosition);
 
+    let infoField = document.createElement('div');
+    infoField.classList.add('info-field');
+
+
+    //add inf. to infoField
+    let title = document.createElement('h2');
+    title.innerHTML = popupData[lastShopId].title;
+
+    let img = document.createElement('img');
+    img.src = popupData[lastShopId].image;
+
+    let info = document.createElement('p');
+    info.innerHTML = popupData[lastShopId].info;
+
+
+    modelContent.appendChild(title);
     modelContent.appendChild(img);
+    modelContent.appendChild(info);
+
 
 }
+
+
 
 function popupClosehandler(e){
     if (e.target.classList.contains('modal-close')){
         popup.close();
     }
 }
+
 
 function cityDropdownList(url, succesCall) {
 
@@ -162,23 +180,32 @@ function handlePosition(position) {
     let latitude = location.latitude;
     let longitude = location.longitude;
 
-
-    let platform = new H.service.Platform({
-        'apikey': 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU'
-    });
-
-    let defaultLayers = platform.createDefaultLayers();
-
-    // Instantiate (and display) a map object:
-    let map = new H.Map(
-        document.getElementById('mapContainer'),
-        defaultLayers.vector.normal.map,
-        {
-            zoom: 12,
-            center: {lat: latitude, lng: longitude}
+    // Controleer of de kaart al bestaat
+    let mapContainer = document.getElementById('mapContainer');
+    if (mapContainer.children.length === 0) {
+        let platform = new H.service.Platform({
+            'apikey': 'bnnZ__gHkjUsmXooFZmHI1-BJEzAT_dGInq3sAp-muU'
         });
-    let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
-}
+
+        let defaultLayers = platform.createDefaultLayers();
+
+        // Instantiate (and display) a map object:
+        let map = new H.Map(
+            mapContainer,
+            defaultLayers.vector.normal.map,
+            {
+                zoom: 12,
+                center: {lat: latitude, lng: longitude}
+            });
+        let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
+    }
+    // Controleer of het info-veld al bestaat
+    let infoField = document.querySelector('.info-field');
+    if (!infoField) {
+        infoField = document.createElement('div');
+        infoField.classList.add('info-field');
+        modelContent.appendChild(infoField);
+}}
 
 
 
