@@ -28,6 +28,7 @@ function getCitys()
         ]
     ];
 }
+
 //jh
 /**
  * @param $id
@@ -39,32 +40,40 @@ function getCityShops($id)
         [
             1 => ["winkel" => ['Kies een winkel', 'Albert Heijn', 'Dirk', 'Plus', 'Jumbo', 'Aldi', 'Lidl'],
                 "id" => 1,
-                "title" =>'Albert Heijn',
+                "title" => 'Albert Heijn',
                 "image" => 'img-dichtbij-winkelen/Albert_Heijn_logo.svg.png',
                 "info" => 'De winkel is 1km verder op! ',
-                "location" => ["latitude" => 51.926517, "longitude" => 4.462456],
-                ],
+                "location" => ["latitude" => 51.92083806608491, "longitude" => 4.486908626984608],
+            ],
 
             2 => ["winkel" => ['Kies een winkel', 'Dirk', 'Plus', 'Jumbo', 'Aldi', 'Lidl', 'Albert Heijn'],
-                "location" => ["latitude" => 52.370241, "longitude" => 4.897300],
                 "id" => 2,
-                "image" => 'img-dichtbij-winkelen/Albert_Heijn_logo.svg.png',
+                "title" => 'Action',
+                "image" => 'img-dichtbij-winkelen/action-logo.png',
+                "info" => 'De winkel is 1km verder op! ',
+                "location" => ["latitude" => 52.366570212885314, "longitude" => 4.866287655056095],
 
             ],
             3 => ["winkel" => ['Kies een winkel', 'Jumbo', 'Aldi', 'Lidl', 'Albert Heijn', 'Dirk', 'Plus'],
-                "location" => ["latitude" => 52.011112, "longitude" => 4.711111],
                 "id" => 3,
-                "image" => 'img-dichtbij-winkelen/Albert_Heijn_logo.svg.png',
+                "title" => 'Hema',
+                "image" => 'img-dichtbij-winkelen/hema-logo.png',
+                "info" => 'De winkel is 1km verder op! ',
+                "location" => ["latitude" => 52.01449344685689, "longitude" =>4.710258015545088],
             ],
             4 => ["winkel" => ['Kies een winkel', 'Aldi', 'Lidl', 'Albert Heijn', 'Dirk', 'Plus', 'Jumbo'],
-                "location" => ["latitude" => 52.080329, "longitude" => 4.30965],
                 "id" => 4,
+                "title" => 'Albert Heijn',
                 "image" => 'img-dichtbij-winkelen/Albert_Heijn_logo.svg.png',
+                "info" => 'De winkel is 1km verder op! ',
+                "location" => ["latitude" => 52.080329, "longitude" => 4.30965],
             ],
             5 => ["winkel" => ['Kies een winkel', 'Lidl', 'Alber Heijn', 'Plus', 'Spar', 'Gall&Gall', 'De Eekhoorn'],
-                "location" => ["latitude" => 51.94818900, "longitude" => 4.85392100],
                 "id" => 5,
+                "title" => 'Albert Heijn',
                 "image" => 'img-dichtbij-winkelen/Albert_Heijn_logo.svg.png',
+                "info" => 'De winkel is 1km verder op! ',
+                "location" => ["latitude" => 51.94818900, "longitude" => 4.85392100],
             ],
         ];
 

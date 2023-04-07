@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css"/>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
             type="text/javascript" charset="utf-8"></script>
@@ -54,17 +55,21 @@
             <dialog class="popup-model" id="popup-model">
                 <div class="model-content">
                     <h1 class="page-title">MEEST GEKOZEN WINKELS IN DE BUURT</h1>
+                    <button class="favoriete-button" id="favoriete-button" type="button" >Favorieten</button>
                     <section id="nearby-shops"></section>
-                    <div class="boxes-and-map">
-                        <div class="all-box"></div>
-                        <div class="map">
-                            <div style="width: 640px; height: 480px" id="mapContainer"></div>
-                        </div>
+                    <div class="map">
+                        <div style="width: 640px; height: 480px" id="mapContainer"></div>
                     </div>
+                    <dialog class="popup-model" id="fav-dialog">
+                        <div class="model-content">
+                            <h1 class="page-title">FAVORIETEN</h1>
+                            <!-- inhoud van de popup voor favorieten -->
+                        </div>
+                        <button class="modal-close" id="fav-modal-close">❌</button>
+                    </dialog>
                 </div>
                 <button class="modal-close" id="modal-close">❌</button>
             </dialog>
-
         </div>
     </div>
 </main>

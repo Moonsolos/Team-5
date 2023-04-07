@@ -49,7 +49,7 @@ main {
     background-color: #DDE4E6;
 }
 
-.field{
+.field {
     margin: 2% 2%;
 
 }
@@ -79,7 +79,7 @@ main {
     text-align: center;
 }
 
-#popup-button{
+#popup-button {
     width: 80%;
     background-color: #ADA8AD;
     padding: 15px;
@@ -91,17 +91,14 @@ main {
     text-align: center;
     text-decoration: none;
 }
-.position-button{
+
+.position-button {
     padding-left: 90%;
     padding-top: 15%;
 }
 
 .boxes-and-map {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
 }
 
 .box {
@@ -114,26 +111,28 @@ main {
 
 }
 
-.all-box{
+.all-box {
 
     align-items: flex-start;
-    width: 55%;
+    width: 25%;
     margin-left: 50px;
 }
 
 .map {
     width: 45%;
+    float: right;
 }
 
-#mapContainer{
+#mapContainer {
     height: 480px;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    float: right;
 }
 
-img{
-    height: 8vh;
+.img-info {
+    width: 50%;
 }
 
 .modal-close {
@@ -149,10 +148,32 @@ img{
     cursor: pointer;
 }
 
-.popup-model{
+.popup-model {
     width: 90%;
 }
 
-.info-field{
+.info-field {
+    width: 20%;
+    margin-top: 2%;
+    background-color: #D9D2D9;
+    padding: 2%;
+}
+.favoriete-button {
+    margin-left: 92%;
+    padding: 7px 15px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    background-color: #ADA8AD;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
 
+.icon-size{
+    transform: scale(3.0);
+    float: right;
+    cursor: pointer;
+}
+.red{
+    color: red;
 }

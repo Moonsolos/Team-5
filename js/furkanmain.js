@@ -9,8 +9,11 @@ let detailContent;
 let storeDropdown;
 let popupButton;
 let popup;
+let favorieteButton;
+let popupFavoriteClose;
 let modelContent;
 let popupData = {};
+let savedFavorites = [];
 let lastShopId;
 
 
@@ -28,52 +31,110 @@ function init() {
     detailContent = document.getElementById('shop-dropdown');
     popupButton = document.getElementById('popup-button');
     popup = document.getElementById('popup-model');
+    favorieteButton = document.getElementById('favoriete-button');
+    popupFavoriteClose = document.getElementById('fav-dialog');
+
     modelContent = document.querySelector('.model-content');
-
-
 
 
     cityDropdownList(apiUrl, fillCityDropdown);
 
 
-    popupButton.addEventListener('click',popupClickhandler);
-    popup.addEventListener('click',popupClosehandler);
+
+    popupButton.addEventListener('click', popupClickhandler);
+    popup.addEventListener('click', popupClosehandler);
     dropdown.addEventListener('change', fillCityShops);
-
-
+    favorieteButton.addEventListener('click',favoritePopup);
+    popupFavoriteClose.addEventListener('click',popupClosehandler)
+    modelContent.addEventListener('click', toggleFavorite);
 }
-function popupClickhandler(e){
 
+function popupClickhandler(e) {
+    let target = e.target;
     console.log(popupData[lastShopId].image);
     popup.showModal();
     userLocation(locationApi, handlePosition);
 
     let infoField = document.createElement('div');
     infoField.classList.add('info-field');
+    modelContent.appendChild(infoField);
 
+    fillInfoField(infoField);
+
+
+}
+
+function fillInfoField() {
+
+    let infoField = document.querySelector('.info-field');
+    if (!infoField) {
+        // Create the infoField if it doesnt exist
+        infoField = document.createElement('div');
+        infoField.classList.add('info-field');
+        modelContent.appendChild(infoField);
+    } else {
+        // Empty the infoField if it already exists
+        infoField.innerHTML = '';
+    }
 
     //add inf. to infoField
     let title = document.createElement('h2');
     title.innerHTML = popupData[lastShopId].title;
+    title.classList.add('title-info');
 
     let img = document.createElement('img');
     img.src = popupData[lastShopId].image;
+    img.classList.add('img-info');
 
     let info = document.createElement('p');
     info.innerHTML = popupData[lastShopId].info;
+    info.classList.add('info-text');
+
+    let heart = document.createElement('i');
+    heart.classList.add('fa', 'fa-heart-o', 'icon-size');
 
 
-    modelContent.appendChild(title);
-    modelContent.appendChild(img);
-    modelContent.appendChild(info);
+
+    infoField.appendChild(title);
+    infoField.appendChild(img);
+    infoField.appendChild(info);
+    infoField.appendChild(heart);
+
+
+}
+
+function toggleFavorite(e) {
+    console.log("Toggle favorite clicked");
+    let target = e.target;
+    console.log(target);
+    if (target.nodeName !== "I") {
+        return;
+    }
+    console.log(target.classList);
+    if (target.classList.contains('fa-heart-o')) {
+        target.classList.remove('fa-heart-o');
+        target.classList.add('fa-heart');
+        target.classList.add('red');
+        localStorage.setItem('favorite','Gekozen !');
+
+    } else {
+        target.classList.remove('fa-heart');
+        target.classList.remove('red');
+        target.classList.add('fa-heart-o');
+        localStorage.removeItem('favorite')
+    }
+}
+
+function favoritePopup(e){
+    let target = e.target;
+    console.log('er word hier geklikt');
 
 
 }
 
 
-
-function popupClosehandler(e){
-    if (e.target.classList.contains('modal-close')){
+function popupClosehandler(e) {
+    if (e.target.classList.contains('modal-close')) {
         popup.close();
     }
 }
@@ -133,17 +194,14 @@ function fillCityShops(e) {
             id = 5;
             break;
     }
-    // store the city in localStorage
-    localStorage.setItem('city', dropdown.value);
 
 
-
-    cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillCity)
+    cityDropdownList(`../dichtstbijZijndeWinkels/webservice-start-furkan/index.php?id=${id}`, fillStores)
 
 }
 
 
-function fillCity(stores) {
+function fillStores(stores) {
     console.log(stores);
 
 
@@ -164,12 +222,13 @@ function fillCity(stores) {
     storeDropdown.addEventListener('change', function (e) {
         let selectedStore = e.target.value;
         localStorage.setItem('store', selectedStore);
-        localStorage.setItem('location',JSON.stringify(stores.location))
+        localStorage.setItem('location', JSON.stringify(stores.location))
 
     })
 
 
 }
+
 // get the location of the user
 function userLocation() {
     navigator.geolocation.getCurrentPosition(handlePosition);
@@ -194,7 +253,7 @@ function handlePosition(position) {
             mapContainer,
             defaultLayers.vector.normal.map,
             {
-                zoom: 12,
+                zoom: 16,
                 center: {lat: latitude, lng: longitude}
             });
         let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
@@ -205,7 +264,8 @@ function handlePosition(position) {
         infoField = document.createElement('div');
         infoField.classList.add('info-field');
         modelContent.appendChild(infoField);
-}}
+    }
+}
 
 
 
