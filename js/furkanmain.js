@@ -129,6 +129,14 @@ function favoritePopup(e){
     let target = e.target;
     console.log('er word hier geklikt');
 
+    let favoritePopup = document.getElementById('fav-dialog');
+    favoritePopup.showModal();
+
+    let favoritePopupCloseButton = document.getElementById('fav-modal-close');
+    favoritePopupCloseButton.addEventListener('click', function() {
+        favoritePopup.close();
+    });
+
 
 }
 

@@ -152,6 +152,10 @@ main {
     width: 90%;
 }
 
+.popup-fav{
+    width: 100%;
+}
+
 .info-field {
     width: 20%;
     margin-top: 2%;
