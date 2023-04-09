@@ -32,35 +32,32 @@ function init() {
     popupButton = document.getElementById('popup-button');
     popup = document.getElementById('popup-model');
     favorieteButton = document.getElementById('favoriete-button');
-    popupFavoriteClose = document.getElementById('fav-dialog');
-
+    popupFavoriteClose = document.getElementById('fav-modal-close');
     modelContent = document.querySelector('.model-content');
 
 
+
     cityDropdownList(apiUrl, fillCityDropdown);
-
-
-
     popupButton.addEventListener('click', popupClickhandler);
     popup.addEventListener('click', popupClosehandler);
     dropdown.addEventListener('change', fillCityShops);
     favorieteButton.addEventListener('click',favoritePopup);
-    popupFavoriteClose.addEventListener('click',popupClosehandler)
     modelContent.addEventListener('click', toggleFavorite);
 }
 
 function popupClickhandler(e) {
+
     let target = e.target;
     console.log(popupData[lastShopId].image);
     popup.showModal();
     userLocation(locationApi, handlePosition);
+
 
     let infoField = document.createElement('div');
     infoField.classList.add('info-field');
     modelContent.appendChild(infoField);
 
     fillInfoField(infoField);
-
 
 }
 
@@ -94,7 +91,6 @@ function fillInfoField() {
     heart.classList.add('fa', 'fa-heart-o', 'icon-size');
 
 
-
     infoField.appendChild(title);
     infoField.appendChild(img);
     infoField.appendChild(info);
@@ -115,38 +111,94 @@ function toggleFavorite(e) {
         target.classList.remove('fa-heart-o');
         target.classList.add('fa-heart');
         target.classList.add('red');
-        localStorage.setItem('favorite','Gekozen !');
+
+        // select and add data to localstorage
+        let infoFieldData = {
+            title: popupData[lastShopId].title,
+            image: popupData[lastShopId].image,
+            info: popupData[lastShopId].info
+        };
+
+        localStorage.setItem('favorites', JSON.stringify(infoFieldData));
 
     } else {
         target.classList.remove('fa-heart');
         target.classList.remove('red');
         target.classList.add('fa-heart-o');
-        localStorage.removeItem('favorite')
+
+        // Remove data from the localstorage
+        localStorage.removeItem('favoriteInfo');
+        removeFavoritesFromStorage();
+
     }
 }
+function removeFavoritesFromStorage() {
+    localStorage.removeItem("favorites");
+}
 
-function favoritePopup(e){
+function favoritePopup(e) {
     let target = e.target;
-    console.log('er word hier geklikt');
+    console.log('klik klik');
 
     let favoritePopup = document.getElementById('fav-dialog');
     favoritePopup.showModal();
 
     let favoritePopupCloseButton = document.getElementById('fav-modal-close');
-    favoritePopupCloseButton.addEventListener('click', function() {
+    favoritePopupCloseButton.addEventListener('click', function () {
         favoritePopup.close();
     });
 
+    // get favorites from LocalStorage
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || {};
 
+    // add favorites to popup
+    addFavoritesToPopup(favorites);
 }
 
 
-function popupClosehandler(e) {
-    if (e.target.classList.contains('modal-close')) {
-        popup.close();
+function addFavoritesToPopup(favorites) {
+    // get favorites container
+    let favoritesContainer = document.getElementById('favorites-container');
+    favoritesContainer.innerHTML = '';
+
+    // loop through the favorites object
+    for (let shopId in favorites) {
+        let favorite = favorites[shopId];
+        console.log("Favorites:", favorites);
+
+        let favoriteDiv = document.createElement('div');
+        favoriteDiv.classList.add('favorite-item');
+
+        let title = document.createElement('h2');
+        title.innerHTML = favorite.title;
+        title.classList.add('title-info');
+
+        let img = document.createElement('img');
+        img.src = favorite.image;
+        img.classList.add('img-info');
+
+        let info = document.createElement('p');
+        info.innerHTML = favorite.info;
+        info.classList.add('info-text');
+
+        favoriteDiv.appendChild(title);
+        favoriteDiv.appendChild(img);
+        favoriteDiv.appendChild(info);
+
+        favoritesContainer.appendChild(favoriteDiv);
     }
 }
 
+
+
+
+function popupClosehandler(e) {
+    if (e.target.classList.contains('fav-modal-close')) {
+        popupFavoriteClose.close();
+    } else if (e.target.classList.contains('modal-close')) {
+        popup.close();
+    }
+}
 
 function cityDropdownList(url, succesCall) {
 
@@ -163,7 +215,11 @@ function cityDropdownList(url, succesCall) {
 }
 
 function ajaxErrorHandler(data) {
-    console.error(data);
+    console.log(data);
+    let error = document.createElement('p');
+    error.innerHTML = 'OOPS, Er gaat iets verkeerd!';
+    error.classList.add('red');
+    onlineShops.before(error);
 }
 
 
@@ -208,10 +264,8 @@ function fillCityShops(e) {
 
 }
 
-
 function fillStores(stores) {
     console.log(stores);
-
 
     popupData[stores.id] = stores;
     console.log(popupData[stores.id].image);
@@ -233,7 +287,6 @@ function fillStores(stores) {
         localStorage.setItem('location', JSON.stringify(stores.location))
 
     })
-
 
 }
 
@@ -274,11 +327,3 @@ function handlePosition(position) {
         modelContent.appendChild(infoField);
     }
 }
-
-
-
-
-
-
-
-

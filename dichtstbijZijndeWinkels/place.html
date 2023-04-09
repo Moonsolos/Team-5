@@ -55,20 +55,20 @@
             <dialog class="popup-model" id="popup-model">
                 <div class="model-content">
                     <h1 class="page-title">MEEST GEKOZEN WINKELS IN DE BUURT</h1>
-                    <button class="favoriete-button" id="favoriete-button" type="button" >Favorieten</button>
+                    <button class="favoriete-button" id="favoriete-button" type="button">Favorieten</button>
                     <section id="nearby-shops"></section>
                     <div class="map">
                         <div style="width: 640px; height: 480px" id="mapContainer"></div>
                     </div>
-                    <dialog class="popup-fav" id="fav-dialog">
-                        <div class="model-content">
-                            <h1 class="page-title">FAVORIETEN</h1>
-                            <!-- inhoud van de popup voor favorieten -->
-                        </div>
-                        <button class="modal-close" id="fav-modal-close">❌</button>
-                    </dialog>
                 </div>
                 <button class="modal-close" id="modal-close">❌</button>
+            </dialog>
+            <dialog class="popup-fav" id="fav-dialog">
+                <div class="model-content">
+                    <h1 class="page-title">FAVORIETEN</h1>
+                    <div id="favorites-container"></div>
+                </div>
+                <button class="modal-close" id="fav-modal-close">❌</button>
             </dialog>
         </div>
     </div>
