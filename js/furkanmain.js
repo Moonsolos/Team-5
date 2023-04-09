@@ -13,7 +13,6 @@ let favorieteButton;
 let popupFavoriteClose;
 let modelContent;
 let popupData = {};
-let savedFavorites = [];
 let lastShopId;
 
 
@@ -35,7 +34,10 @@ function init() {
     popupFavoriteClose = document.getElementById('fav-modal-close');
     modelContent = document.querySelector('.model-content');
 
-
+    let popupOpen = localStorage.getItem('popupOpen');
+    if (popupOpen) {
+        popup.showModal();
+    }
 
     cityDropdownList(apiUrl, fillCityDropdown);
     popupButton.addEventListener('click', popupClickhandler);
@@ -43,6 +45,21 @@ function init() {
     dropdown.addEventListener('change', fillCityShops);
     favorieteButton.addEventListener('click',favoritePopup);
     modelContent.addEventListener('click', toggleFavorite);
+
+
+    // Save the state of the pop-up to localStorage when the user closes it
+    popup.addEventListener('close', function() {
+        localStorage.removeItem('popupOpen');
+    });
+
+    // Save the state of the pop-up to localStorage when the user navigates away from the page
+    window.addEventListener('beforeunload', function() {
+        if (popup.open) {
+            localStorage.setItem('popupOpen', true);
+        } else {
+            localStorage.removeItem('popupOpen');
+        }
+    });
 }
 
 function popupClickhandler(e) {
@@ -57,7 +74,13 @@ function popupClickhandler(e) {
     infoField.classList.add('info-field');
     modelContent.appendChild(infoField);
 
-    fillInfoField(infoField);
+    const savedPopupData = localStorage.getItem('popupData');
+    if (savedPopupData) {
+        const parsedPopupData = JSON.parse(savedPopupData);
+        fillInfoField(infoField, parsedPopupData);
+    } else {
+        fillInfoField(infoField);
+    }
 
 }
 
@@ -121,6 +144,7 @@ function toggleFavorite(e) {
 
         localStorage.setItem('favorites', JSON.stringify(infoFieldData));
 
+
     } else {
         target.classList.remove('fa-heart');
         target.classList.remove('red');
@@ -129,6 +153,7 @@ function toggleFavorite(e) {
         // Remove data from the localstorage
         localStorage.removeItem('favoriteInfo');
         removeFavoritesFromStorage();
+
 
     }
 }
@@ -188,9 +213,6 @@ function addFavoritesToPopup(favorites) {
         favoritesContainer.appendChild(favoriteDiv);
     }
 }
-
-
-
 
 function popupClosehandler(e) {
     if (e.target.classList.contains('fav-modal-close')) {
